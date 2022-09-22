@@ -1,0 +1,42 @@
+body{
+    background-color:#FBF6EB ;
+    margin-left: 5%;
+}
+h1{
+    color: indigo;
+    font-size: 350%;
+    margin: 5%;
+    margin-left: 25%;
+    font-family: cursive;
+}
+h2{
+    color:indigo;
+    font-family: cursive;
+}
+.descripcion{
+    padding: 1%;
+}
+img{
+    margin-left: 20%;
+    border:indigo solid ;
+    border-radius: 20px ;
+}
+p{
+    font-family: cursive;
+}
+ul{
+    font-family: cursive;
+}
+ol{
+    font-family: cursive;
+}
+button{
+    border-color:indigo;
+    border-radius: 20px;
+    background-color: #f3e7f3;
+    font-family: cursive;
+    padding: 10px;
+    font-weight: bold;
+    color:indigo;
+    font-size: 15pt;
+}
