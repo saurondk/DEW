@@ -1,17 +1,15 @@
 function bucle(){
     var i = window.prompt("Introduce un numero para cuenta atras")
     var j = i;
-    for ( i ; i >= 0; i--) {
-        document.write(i+"&nbsp;");
+    
+    while (i>0) {
+        document.write(i+" ")
+        i--;
     }
         document.write("<br>");
-    
-        
-        i=0;
-        for ( i ; i <= j; i++) {
-        document.write(i+"&nbsp;");
-    }
-    
-    
+        while (i<=j) {
+            document.write(i+"&nbsp;");
+            i++;
+        }
 
 }
