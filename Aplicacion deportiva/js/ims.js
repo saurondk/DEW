@@ -2,9 +2,11 @@ function calculadoraimc(){
 var altura;
 var peso;
 var imc;
-
-   altura= prompt("Introduce tu altura en cm");
-   peso=prompt("Introduce tu peso en kg");
+    do {
+        altura= prompt("Introduce tu altura en cm");
+        peso=prompt("Introduce tu peso en kg");
+    } while (isNaN(altura)||isNaN(peso));
+   
     altura = altura/100;
     imc= peso/(altura**2);
     if (imc<16) {
