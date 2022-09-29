@@ -76,7 +76,7 @@ do {
         " <p> Categoria Infantiles.</p>"+
         " <p> Categoria Cadetes.</p>"+
         " <p> Categoria Juveniles.</p>"+
-        " <p><b style=color:red> Categoria Senior</b></p>";
+        " <p> Categoria <b style=color:red>Senior</b></p>";
     }
 } 
     
