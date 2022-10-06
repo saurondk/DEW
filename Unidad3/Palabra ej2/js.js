@@ -22,7 +22,7 @@ function pista() {
         document.getElementById("resultado").innerHTML=prueba;
         
     }
-    clearInterval(); 
+    
 }
 
 function pistados(){
@@ -37,7 +37,7 @@ function pistados(){
     }else{
         document.getElementById("resultado").innerHTML=prueba;
     }
-    clearInterval(); 
+    
 }
 
 function makeAlert(){ 
