@@ -7,12 +7,12 @@
     <script src="texto.js"></script>
     <title>Texto</title>
 </head>
-<body onload="usuarios()">
-    <form>
-        <input type="button" value="Todos los usuarios" onclick="">
-        <input type="button" value="Por provincia">
-        <input type="number">
+<body>
+    <form onsubmit="return false">
+        <input type="button" value="Todos los usuarios" onclick="usuarios()">
+        <input type="button" value="Por provincia" onclick="visi()">
+        <div id="cajaprov"></div>
     </form>
-    <div id="usuarios"></div>
+    <div id="usuario"></div>
 </body>
 </html>
