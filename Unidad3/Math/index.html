@@ -5,22 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+    <script src="math.js"></script>
 </head>
 <body>
     <h1>Operaciones matematicas</h1>
-    <b>Elige una de las siguientes opciones</b>
-    <div>
-        <input type="button" value="potencia" >
-    </div>
-    <div>
-        <input type="button" value="Raiz">
-    </div>
-    <div>
-        <input type="button" value="Redondeo">
-    </div>
-    <div>
-        <input type="button" value="Trigonometria">
-    </div>
+    <b style="margin-left:50px ;">Elige una de las siguientes opciones</b><br>
+    <form onsubmit="return false" style="margin-left:50px ;"><br>
+    
+        <input type="button" value="Potencia" onclick="pot()">
+        <input type="button" value="Raiz" onclick="raiz()">
+        <input type="button" value="Redondeo" onclick="redondeo()">
+        <input type="button" value="Trigonometria" onclick="angulo()">
+        <input type="button" value="Circulo" onclick="circulo()">
+        <br><div id="caja" style="margin-left:20px ;"></div>
+    
+</form>
 
 </body>
 </html>
