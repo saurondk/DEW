@@ -39,6 +39,11 @@
         }
     }
     function circulo(){
-        
+        var radio= prompt("Introduce el radio del circulo");
+        document.getElementById("caja").innerHTML="El radio del circulo es "+radio+"<br>"+
+        "El valor del diametro es "+(radio*2)+"<br>"+ "El valor del perimetro es"+2*Math.PI*radio+"<br>"+
+        "El valor del area es "+Math.PI*Math.pow(radio,2)+"<br>"+"El valor del area de la esfera "+4*Math.PI*Math.pow(radio,2)+"<br>"+
+        "El valor del volumen de la esfera es "+(4*Math.PI*Math.pow(radio,3))/3;
+
     }   
     
