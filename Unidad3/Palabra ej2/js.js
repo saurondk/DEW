@@ -1,55 +1,55 @@
-var palabrasecreta="ventanas";
-var palabrasecreta2="blancanieves"
+String.prototype.replaceAt=function(index, character){
+    return this.substring(0, index) + character + 
+     this.substr(index+character.length); }
 
-var pista1="Un sistema operativo se llama como la palabra";
-var pista2="Una madrastra que es infernal ,una manzana que es mortal,con un beso de amor se salvará";
+const palabras= ['casa','perro','gato','elefante'];
+const palabra =palabras[Math.floor(Math.random()*palabras.length)];
+let palabaraguion = palabra.replace(/./g,"_ ");
+let contadorfallos=5;
+document.querySelector('#salida').innerHTML = palabaraguion;
+document.querySelector('#comprobar').addEventListener('click', () =>{
 
-var solucion="Enhorabuena has acertado la adivinanza";
-var prueba="Prueba otra vez";
-
-
-
-function pista() {
-    alert("Tienes 10 segundos para solucionar la adivinanza")
-    setInterval(makeAlert, 10000);
-    pista1=prompt(pista1);
-    if (pista1==palabrasecreta) {
-
-        document.getElementById("resultado").innerHTML=solucion;
-        
-
-    }else{
-        document.getElementById("resultado").innerHTML=prueba;
-        
+const letra = document.querySelector('#letra').value;
+    let hafallado = true;
+    for (const i in palabra){
+        if(letra == palabra[i]){
+        palabaraguion = palabaraguion.replaceAt(i*2,letra);
+        hafallado=false;
+        }
     }
     
-}
+    if (hafallado) {
+        contadorfallos--;
+        document.querySelector('#intentos').innerHTML="Intentos = "+contadorfallos;
+        if (contadorfallos==0) {
+            alert("Perdiste el juego");
+            window.location.reload();
 
-function pistados(){
-    alert("Tienes 10 segundos para solucionar la adivinanza")
-    setInterval(makeAlert, 10000);
-    pista2=prompt(pista2);
-    if(pista2==palabrasecreta2){
-
-        document.getElementById("resultado").innerHTML=solucion;
-        
-
+        }
     }else{
-        document.getElementById("resultado").innerHTML=prueba;
+        if(palabaraguion.indexOf('_')<0){
+            alert('Victoria');
+            window.location.reload();
+        }
     }
-    
+
+    document.querySelector('#salida').innerHTML = palabaraguion;
+    document.querySelector('#letra').value="";
+    document.querySelector('#letra').focus();
+});
+
+window.onload = updateClock;
+
+var totalTime = 60;
+
+function updateClock() {
+document.getElementById('countdown').innerHTML = "Tienes "+totalTime+" segundos para resolver el ahorcado";
+if(totalTime==0){
+alert('Has perdido');
+window.location.reload();
+}else{
+totalTime-=1;
+setTimeout("updateClock()",1000);
 }
-
-function makeAlert(){ 
-    alert("Te has pasado de tiempo");
-    
-};
-
-
-
-
-
-
-
-
+}
 

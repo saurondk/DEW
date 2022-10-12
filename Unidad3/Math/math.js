@@ -8,7 +8,7 @@
      var base =prompt("Introduce una Base");
      var exponente= prompt("Introduce el exponente");
      var resultado =base**exponente;
-     document.getElementById("caja").innerHTML="La potencia de "+ base + " X "+exponente + "es = "+resultado;  
+     document.getElementById("caja").innerHTML="La potencia de "+ base + " X "+exponente + " es = "+resultado;  
     }
 
     function raiz(){
@@ -40,10 +40,10 @@
     }
     function circulo(){
         var radio= prompt("Introduce el radio del circulo");
-        document.getElementById("caja").innerHTML="El radio del circulo es "+radio+"<br>"+
-        "El valor del diametro es "+(radio*2)+"<br>"+ "El valor del perimetro es"+2*Math.PI*radio+"<br>"+
-        "El valor del area es "+Math.PI*Math.pow(radio,2)+"<br>"+"El valor del area de la esfera "+4*Math.PI*Math.pow(radio,2)+"<br>"+
-        "El valor del volumen de la esfera es "+(4*Math.PI*Math.pow(radio,3))/3;
+        document.getElementById("caja").innerHTML="<br> El radio del circulo es "+radio+" cm "+ "<br>"+
+        "El valor del diametro es "+(radio*2)+" cm <br>"+ "El valor del perimetro es "+2*Math.PI*radio+" cm <br>"+
+        "El valor del area es "+Math.PI*Math.pow(radio,2)+" cm2 <br>"+"El valor del area de la esfera "+4*Math.PI*Math.pow(radio,2)+" cm2<br>"+
+        "El valor del volumen de la esfera es "+(4*Math.PI*Math.pow(radio,3))/3+" cm3";
 
     }   
     
