@@ -22,7 +22,7 @@ function cumple(){
     var dial = fechalimpia.getDay;
 
     for (let i = aniol ; i< 2100; i++) {
-        
+        var fecha = new Date(i+"-"+fechalimpia.getMonth+"-"+dial)
         if(fechafinal.getDay==0){
 
             
