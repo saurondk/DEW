@@ -13,23 +13,22 @@ function fin(){
 }
 function cumple(){
     
-    var fechacumple=document.getElementById("cumples").value ;
-    alert(fechacumple);
-    var fechalimpia= new Date(fechacumple);
+    var fechainput=document.getElementById("cumples").value ;
+    var fechalimpia= new Date(fechainput);
+    var aniol= fechalimpia.getFullYear();
+    alert(aniol);
     
-    var fechafinal= new Date("2100-12-12");
-    var aniol= fechalimpia.getFullYear;
-    var dial = fechalimpia.getDay;
-
     for (let i = aniol ; i< 2100; i++) {
-        var fecha = new Date(i+"-"+fechalimpia.getMonth+"-"+dial)
-        if(fechafinal.getDay==0){
+        var contador;
+        var fecha = new Date(i+"-"+fechalimpia.getMonth()+"-"+fechalimpia.getDate().getDay());
+        alert(fecha);
+        if(fecha.getDay()==0){
 
-            
+            contador++
         }
         
     }
-
+    document.getElementById("salida").innerHTML= "Tu cumpleaños cae "+ contador +" de veces en domingo."
 
     
 }
