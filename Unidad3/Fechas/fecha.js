@@ -45,5 +45,22 @@ function formatos(){
     
 }
 function horas(){
-    
+    var input =document.getElementById("formato").value;
+    var fecha = new Date();
+  
+    switch(input){
+        case "24":
+            
+            var hora = fecha.getHours();
+            var minutos= fecha.getMinutes();
+            var segundos = fecha.getSeconds();
+            document.getElementById("salida").innerHTML=hora+":"+minutos+":"+segundos;
+        break;
+        case "pm":
+            
+           var pm= fecha.toLocaleString('en-US', { hour: 'numeric',minute:'numeric',second:'numeric', hour12: true });
+            document.getElementById("salida").innerHTML=pm;
+        break;
+    }
+   ;
 }
