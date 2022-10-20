@@ -5,12 +5,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <title>Calculadora IMC</title>
 
     <script src="js/ims.js"></script>
     <script src="js/fcm.js"></script>
     <script src="js/categoria.js"></script>
+    <script src="js/fecha.js"></script>
+    <style>
+        table {
+            border: 1px solid black;
+            margin-left: 50px;
+            margin-top: 50px;
+            font-size: larger;
+            text-align: center;
+        }
+        tr td{
+            border: 1px solid black;
+            font-size: larger;
+            text-align: center;
+        }
+        #anios ,#meses{
+            background-color: rgb(50, 117, 175);
+        }
+        #dia{
+            background-color: aqua;
+        }
+    </style>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
@@ -21,7 +42,22 @@
     </head>
 
 
-<body>
+<body onload="fecha()">
+    <div >
+        <table>
+            <tr>
+                <td id="anios">año</td>
+                
+            </tr>
+            <tr>
+                <td id="dia">dia</td>
+            </tr>
+            <tr>
+                <td id="meses">mes</td>
+            </tr>
+            
+        </table>
+    </div>
     <h1 class="display-2 text-center mt-4 ">Calculadora IMC</h1>
     <div class="container mt-4 ">
         <div class="row align-items-start">
@@ -39,7 +75,10 @@
         </div>
     </div>
 
-
+<footer>
+    Pagina desarrollada por Aram Hernandez Rodriguez <br>
+      <a href=""  onclick="aviso()">Aviso Legal</a>
+</footer>
 </body>
 
 </html>
