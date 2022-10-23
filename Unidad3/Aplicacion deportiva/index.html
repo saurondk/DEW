@@ -101,29 +101,29 @@
                             if (password.match(/\d/)) {
 
                                 if (password.match(/[;:\.,!¡\?¿@#\$%\^&\-_]/)) {
-                                    document.getElementById("passout").innerHTML = "<span style='color: green;'>La contraseña es correcta</span>";
+                                    document.getElementById("passout").innerHTML = "La contraseña es correcta";
 
                                 }
                                 else {
-                                    document.getElementById("passout").innerHTML = "<span style='color: red;'>La contraseña No contiene un carcter especial</span>";
+                                    document.getElementById("passout").innerHTML = "La contraseña No contiene un caracter especial";
                                 }
 
                             }
                             else {
-                                document.getElementById("passout").innerHTML = "<span style='color: red;'>La contraseña No contiene un numero</span>";
+                                document.getElementById("passout").innerHTML = "La contraseña No contiene un numero";
                             }
                         }
                         else {
-                            document.getElementById("passout").innerHTML = "<span style='color: red;'>La contraseña No contiene una letra mayuscula</span>";
+                            document.getElementById("passout").innerHTML = "La contraseña No contiene una letra mayuscula";
                         }
                     }
                     else {
-                        document.getElementById("passout").innerHTML = "<span style='color: red;'>La contraseña No contiene una letra minuscula</span>";
+                        document.getElementById("passout").innerHTML = "La contraseña No contiene una letra minuscula";
                     }
 
                 }
                 else {
-                    document.getElementById("passout").innerHTML = "<span style='color: red;'>La contraseña No cumple con el largo requerido </span>";
+                    document.getElementById("passout").innerHTML = "La contraseña No cumple con el largo requerido";
                 }
 
             }
@@ -135,9 +135,7 @@
                 <button onclick="passw()">Comprobar</button><br>
             </fieldset>
         </form>
-    <br>
     </div>
-    
     <div id="passout"></div>
     <br>
 
