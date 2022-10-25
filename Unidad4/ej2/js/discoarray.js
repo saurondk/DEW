@@ -1,4 +1,4 @@
-class disco{
+class  disco{
     cantante_grupo;
     //constructor
    constructor(nombreDisco,cantante_grupo,anioPublicacion, tipo,localizacion,prestado){
@@ -25,9 +25,10 @@ class disco{
    //metodo string.
    
    toString(){ return "Nombre del disco: "+this.nombreDisco+"<br>"+"Cantante o grupo: "+this.cantante_grupo+"<br>"+"Año de publicacion:"+this.anioPublicacion+"<br>"+
-               "Genero: "+this.tipo+"<br>"+"Localizacion: "+this.localizacion+"<br>"+"Prestado: "+(this.prestado ? "No disponible":"Disponible")+"<br>";
+               "Genero: "+this.tipo+"<br>"+"Localizacion: "+this.localizacion+"<br>"+"Prestado: "+(this.prestado ? "Si":"No")+"<br>";
            }
 }
+
 
 var coleccionDiscos = [];
 
@@ -46,77 +47,89 @@ function crearDisco() {
 }
 
 var disco1= new disco("Black","Metallica",1995,"Heavy metal",2,);
-coleccionDiscos.unshift(disco1);
+var disco2= new disco("white","acdc",1990,"Rock",3,);
+coleccionDiscos.unshift(disco1,disco2);
 
 function arrayNumero(coleccionDiscos) {
 
     var numero = coleccionDiscos.length;
-    document.getElementById("salida").innerHTML += "<p><h3>Elementos del array</h3></p> El numero de elementos del array es " + numero + "<br>";
+    document.getElementById("salida").innerHTML = "<p><h3>Elementos del array</h3></p> El numero de elementos del array es " + numero + "<br>";
 }
 
 function arrayMuestra(coleccionDiscos) {
 
-    document.getElementById("salida").innerHTML += "<p><h3>Array a String</h3></p>" + coleccionDiscos.toString() + "<br>";
+    document.getElementById("salida").innerHTML = "<p><h3>Array a String</h3></p>" + coleccionDiscos.toString() + "<br>";
 
 }
 
 function arrayInverso(coleccionDiscos) {
-    var arraylocal = coleccionDiscos;
-    arraylocal.reverse();
-    document.getElementById("salida").innerHTML += "<p><h3>Array Inverso</h3></p>" + arraylocal.toString() + "<br>";
+    var arraylocal1 = coleccionDiscos;
+    arraylocal1.reverse();
+    document.getElementById("salida").innerHTML = "<p><h3>Array Inverso</h3></p>" + arraylocal1.toString() + "<br>";
 }
 
 function arrayOrdenAlfa(coleccionDiscos) {
-    var arraylocal = coleccionDiscos;
-    arraylocal.sort();
-    document.getElementById("salida").innerHTML += "<p><h3>Array ordenados alfabeticamente</h3></p>" + arraylocal.toString() + "<br>";
+    var arraylocal2 = coleccionDiscos;
+    arraylocal2.sort();
+    document.getElementById("salida").innerHTML = "<p><h3>Array ordenados alfabeticamente</h3></p>" + arraylocal2.toString() + "<br>";
 }
 
 function arrayInsertaPrincipio(coleccionDiscos) {
     
     coleccionDiscos.unshift(crearDisco());
-    document.getElementById("salida").innerHTML += "<p><h3> Insertando un elementos  el array</h3></p>" + coleccionDiscos[0] + "<br>";
-    document.getElementById("salida").innerHTML += coleccionDiscos.toString() + "<br>";
+    document.getElementById("salida").innerHTML = "<p><h3> Insertando un elementos  el array</h3></p>" + coleccionDiscos[0] + "<br>";
+    
 }
+
 function arrayInsertafinal(coleccionDiscos) {
-    var pais = window.prompt("Introduce un pais");
-    coleccionDiscos.push(pais);
-    document.getElementById("salida").innerHTML += "<p><h3> Insertando un elementos  el array</h3></p>" + coleccionDiscos.toString() + "<br>";
-    document.getElementById("salida").innerHTML += coleccionDiscos[coleccionDiscos.length - 1] + "<br>";
+    
+    coleccionDiscos.push(crearDisco());
+    document.getElementById("salida").innerHTML = "<p><h3> Insertando un elementos  el array</h3></p>" + coleccionDiscos.toString() + "<br>";
+   
 
 }
 //Borrar un elemento al principio del array (y decir cuál se ha borrado).
 function arrayBorrarPrincipio(coleccionDiscos) {
 
-    document.getElementById("salida").innerHTML += "<p><h3>Borrando un elemento al principio del array</h3></p>" + coleccionDiscos.shift() + "<br>";
-    document.getElementById("salida").innerHTML += coleccionDiscos.toString() + "<br>";
+    document.getElementById("salida").innerHTML = "<p><h3>Borrando un elemento al principio del array</h3></p>" + coleccionDiscos.shift() + "<br>";
+    
 }
 //Borrar un elemento al final del array (y decir cuál se ha borrado).
 
 function arrayBorrarFinal(coleccionDiscos) {
 
-    document.getElementById("salida").innerHTML += "<p><h3>Borrando al final del array</h3></p>" + coleccionDiscos.pop() + "<br>";
-    document.getElementById("salida").innerHTML += coleccionDiscos.toString() + "<br>";
+    document.getElementById("salida").innerHTML = "<p><h3>Borrando al final del array</h3></p>" + coleccionDiscos.pop() + "<br>";
+    
 
 }
 function mostrarElemento(coleccionDiscos) {
 
-    var elemento = prompt("Introduce una posición del array para ver el elemento del 0 al " + coleccionDiscos.length);
-    document.getElementById("salida").innerHTML += "<p><h3> El elemento del array es </h3></p>" + coleccionDiscos[elemento];
+    var elemento = prompt("Introduce una posición del array para ver el elemento del 0 al " + (coleccionDiscos.length-1));
+    document.getElementById("salida").innerHTML = "<p><h3> El elemento del array es </h3></p>" + coleccionDiscos[elemento];
 
 }
 //Muestra la posición en la que se encuentra un elemento que le indica el usuario.
 function mostrarPosicion(coleccionDiscos) {
-
-    var elemento = prompt("Introduce el nombre del elemento para ver su posición en el array");
-    document.getElementById("salida").innerHTML += "<p><h3>La posición del elemento es </h3></p>" + coleccionDiscos.indexOf(elemento) + "<br>";
+    var existe=0;
+    var elemento = prompt("Introduce el nombre del disco para ver su posición en el array");
+    for (let i = 0; i < coleccionDiscos.length; i++) {
+       
+        if (elemento==coleccionDiscos[i].nombreDisco) {
+            document.getElementById("salida").innerHTML = "<p><h3>La posición del elemento es </h3></p>" + i  + "<br>";
+            existe = 1;
+            break;
+        } 
+    }if(existe==0){
+        document.getElementById("salida").innerHTML = "No tenemos este disco en el array";
+    }
+    
 }
 //Muestra intervalo del array 
 function mostrarIntervalo(coleccionDiscos) {
     var intervalo = prompt("Introduce un intervalo en formato inicio-fin (Ejemplo 0-1) Ten en cuenta que el array tiene " + coleccionDiscos.length + " posiciones.");
     intervalo = intervalo.split("-");
     var rango = coleccionDiscos.slice(intervalo[0], intervalo[1]);
-    document.getElementById("salida").innerHTML += "<p><h3>Intervalo de posiciones</h3></p>" + rango.toString() + "<br>";
+    document.getElementById("salida").innerHTML = "<p><h3>Intervalo de posiciones</h3></p>" + rango.toString() + "<br>";
 
 }
 //Menu principal
@@ -170,7 +183,6 @@ window.menu= function menu() {
                 case "2":
                     arrayBorrarFinal(coleccionDiscos);
                     break;    
-        
 
                 }
          break;
