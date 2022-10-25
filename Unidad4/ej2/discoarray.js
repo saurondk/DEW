@@ -1,15 +1,61 @@
-var coleccionDiscos = ["España", "Alemania", "Chile", "Malasia", "Iran", "Venezuela", "Italia"];
+class disco{
+    
+    //constructor
+   constructor(nombreDisco,cantante_grupo,anioPublicacion, tipo,localizacion,prestado){
+       this.nombreDisco=nombreDisco;
+       this.cantante_grupo=cantante_grupo;
+       this.anioPublicacion=anioPublicacion;
+       this.tipo=tipo;
+       this.localizacion=localizacion;
+       this.prestado=prestado=false;
+   }
+//cambia el numero de  estanteria
+   cambiarLocalizacion(localizacion){
+       this.localizacion=localizacion;
+   }
+
+//cambia funcio prestado
+   cambiarPrestado(){
+       if (prestado==false){
+           this.prestado=true;
+       }else{
+           this.prestado=false; 
+       }
+   }
+   //metodo string.
+   
+   toString(){ return "Nombre del disco: "+this.nombreDisco+"\n"+"Cantante o grupo: "+this.cantante+"\n"+"Año de publicacion:"+this.anioPublicacion+"\n"+
+               "Genero: "+this.tipo+"\n"+"Localizacion: "+this.localizacion+"\n"+"Prestado: "+this.prestado;
+           }
+}
+
+var coleccionDiscos = [];
 
 
-function arrayNumero(arraypaises) {
+function crearDisco() {
+    var nombreDisco = prompt("Introduce un nombre para el disco.");
+    var cantante_grupo= prompt("Introduce un cantante o nombre de grupo para el disco.");
+    var anioPublicacion= prompt("Introduce un genero para el disco");
+    var localizacion = prompt("Introduce una localizacion");
+    var prestado= false;
+    var discos = new disco(nombreDisco,cantante_grupo,anioPublicacion,tipo,localizacion,prestado);
+    coleccionDiscos.unshift(discos);
 
-    var numero = arraypaises.length;
+
+}
+
+var disco1= new disco("Black","Metallica",1995,"Heavy metal",2,)
+coleccionDiscos.unshift(disco1);
+
+function arrayNumero(coleccionDiscos) {
+
+    var numero = coleccionDiscos.length;
     document.getElementById("salida").innerHTML += "<p><h3>Elementos del array</h3></p> El numero de elementos del array es " + numero + "<br>";
 }
 
-function arrayMuestra(arraypaises) {
+function arrayMuestra(coleccionDiscos) {
 
-    document.getElementById("salida").innerHTML += "<p><h3>Array a String</h3></p>" + arraypaises.toString() + "<br>";
+    document.getElementById("salida").innerHTML += "<p><h3>Array a String</h3></p>" + coleccionDiscos.toString() + "<br>";
 
 }
 
@@ -73,7 +119,7 @@ function mostrarIntervalo(arraypaises) {
 
 }
 //Menu principal
-function menu() {
+window.menu= function menu() {
     var opciones = window.prompt("Introduce una opcion: \n 1. Mostrar numero de paises. \n 2. Mostrar Listado de paises. \n 3.Mostrar un intervalo de paises. \n 4. Añadir un pais \n 5.Borrar un pais \n 6.Consultar un pais");
 
     switch (opciones) {
