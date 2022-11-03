@@ -71,19 +71,21 @@ window.verDatosEdificio = function verDatosEdificio() {
             edificios[i].imprimecalle();
             edificios[i].imprimenumero();
             edificios[i].imprimeCp();
-            //var plantas=0
+            //console.log(edificios[i].plantas);
             for (let j = 0; j < edificios[i].plantas.length; j++) {
-                var k=0;
-                edificios[i][j].forEach(element => {
+                console.log( edificios[i].plantas[j]);
+                console.log( edificios[i].plantas[j].length);
+                console.log( edificios[i].plantas[j][0] );
+                //no me obtiene la ultima posicion del array linea 78 obtiene el nombre en esa posicion pero no funciona el .length del bucle for
+                for (let k = 0; k <= edificios[i].plantas[j].length; k++) {
+                    console.log( edificios[i].plantas[j][k] );
+                    document.getElementById("salida").innerHTML+="Propietario del piso"+k+" de la planta "+j+" es "+edificios[i].plantas[j][k];
+
+                }    
+                edificios[i].plantas[j].forEach(element => {
+                    console.log(element);
                     document.getElementById("salida").innerHTML+="Propietario del piso"+k+" de la planta "+j+" es "+element;
-                    k++;
                 });
-                    
-                    
-                    
-                
-                
-                
             }
             
         }
@@ -97,8 +99,8 @@ window.insertePropietarios = function insertePropietarios() {
     
     for (let i = 0; i < edificios.length; i++) {
         if (edificionum == edificios[i].numero) {
-            var planta = prompt("Introduce una planta");
-            var puerta = prompt("Introduce una puerta");
+            var planta = prompt("Introduce una planta")-1;
+            var puerta = prompt("Introduce una puerta")-1;
             var nombre = prompt("Introduce un nombre");
             console.log(edificios[i]);
             edificios[i].agregarPropietario(nombre, planta, puerta);
