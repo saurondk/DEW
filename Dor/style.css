@@ -71,3 +71,38 @@ h1{
   margin-bottom: 0px;
   text-align: left;
 }
+#bordebody{
+    width: 926px;
+    position: absolute;
+    border:3px solid rgb(152, 201, 53);
+    border-bottom: none;
+    border-radius: 5px;
+    height: 100px;
+    float: left;
+    margin-top: -19px;
+    left: 0px;
+    padding: 20px 20px 0px 20px;
+}
+#area{
+    width: 926px;
+    float: left;
+    position: relative;
+    padding: 20px 20px 0px 20px;
+    
+}
+#usuarios{
+    
+    float: left;
+    position: relative;
+}
+h4{
+    background-color: #3c74e6 ;
+    color:white;
+    text-align: center;
+    padding: 10px;
+    
+}
+#verde{
+    color: #3e9722;
+    text-decoration:none;
+}
