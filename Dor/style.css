@@ -106,3 +106,7 @@ h4{
     color: #3e9722;
     text-decoration:none;
 }
+#centro{
+    float: left;
+    position: relative;
+}
