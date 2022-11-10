@@ -1,21 +1,21 @@
 const formulario = document.getElementById("formulario");
-formulario.action="";
+
 //Almacenar en una cookie el número de intentos de envío del formulario que se van produciendo y mostrar un mensaje en el contenedor "intentos" similar a:
  //"Intento de Envíos del formulario: X". Es decir cada vez que le demos al botón de enviar tendrá que incrementar el valor de la cookie en 1 y
  // mostrar su contenido en el div antes mencionado. Nota: para poder actualizar el contenido de un contenedor o div la propiedad que tenemos que modificar para ese objeto es innerHTML.
  
-
 document.cookie = "intentos=0";
 varintentos =document.cookie;
 inicio =varintentos.indexOf("=")+1;
 valor = parseInt(varintentos.substring(inicio,varintentos.length));
 
 
-formulario.onsubmit= function(){
+/*formulario.onsubmit= function(){
     valor++;
     intentos.innerHTML= "El numero de intentos es " + valor;
     return false;
-}
+}*/
+
 
 //Cada vez que los campos NOMBRE y APELLIDOS pierdan el foco, el contenido que se haya escrito en esos campos se convertirá a mayúsculas.
 /*nombre.onblur= function(){
@@ -163,7 +163,58 @@ const validarTelefonos =()=>{
 
     let input= document.getElementById("telefono").value
 
-    if()
+    if(!input.match(/^[0-9]{9}$/)){
+        errores.innerHTML="Introduce un telefono valido";
+        document.getElementById("telefono").focus();
+    }else{
+        errores.innerHTML="";
+    }
 
-} 
-    
+}
+telefono.onblur= function(){
+    validarTelefonos();
+}
+
+//Validar el campo HORA utilizando una expresión regular. Debe seguir el patrón de hh:mm.
+// No es necesario validar que sea una hora correcta. 
+//Si se produce algún error mostrar el mensaje en el contenedor "errores" y poner el foco en el campo HORA.
+// Explicar las partes de la expresión regular mediante comentarios.
+
+const validarHora =()=>{
+
+    let input = document.getElementById("hora").value;
+ 
+    if(!input.match(/^[0-9]{2}[:][0-9]{2}$/)){
+
+        errores.innerHTML="Introduce una hora con el formato correcto";
+        document.getElementById("hora").focus();
+
+    }else{
+        errores.innerHTML="";
+    }
+
+}
+hora.onblur= function(){
+    validarHora();
+}
+
+const enviar1 =()=>{
+
+    if(confirm("Deseas enviar el formaulario")){
+        formulario.onsubmit= function(){
+            return true;
+        }
+    }else{
+        formulario.onsubmit= function(){
+            valor++;
+            intentos.innerHTML= "El numero de intentos es " + valor;
+            return false;
+        }
+    }
+}
+
+
+
+enviar.onclick=function () {
+    enviar1();
+}
