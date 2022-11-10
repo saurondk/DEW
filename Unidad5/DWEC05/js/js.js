@@ -52,3 +52,66 @@ apellidos.onblur= function(){
 // que esté en el rango de 0 a 105. Si se produce algún error mostrar 
 //el mensaje en el contenedor "errores" y poner el foco en el campo EDAD.
 
+const validarEdad = () => {
+    let input = document.getElementById("edad").value; //preguntar a nico el /d por que no funcioa
+    if (!input.match(/[0-9]/) ) {
+
+            errores.innerHTML="Introudce  solo numeros por favor.";	
+            document.getElementById("edad").focus();   
+    }
+    else if ( input>=105 || input<=0 ){
+
+        errores.innerHTML="Introudce un rango de 0 a 105.";	
+            document.getElementById("edad").focus();
+    }
+    else{
+        errores.innerHTML="";
+    }
+}
+edad.onblur= function(){
+    validarEdad();
+};
+
+//Validar el NIF. Utilizar una expresión regular que permita solamente 8 números un guión y una letra.
+//Si se produce algún error mostrar el mensaje en el contenedor "errores"
+// y poner el foco en el campo NIF. No es necesario validar que la letra sea correcta.
+// Explicar las partes de la expresión regular mediante comentarios
+const validarNif = () => {
+    let input = document.getElementById("nif").value; 
+    if (!input.match(/^[0-9]{8}[-][A-Z]{1}$/) ) { //^ es para limitar patron al principio
+                                                   //[0-9] cualquier numero del 0 al 9 {8} hasta 8 veces 
+                                                   //[-] un solo guion
+                                                   //[A-Z] Letras de la a hasta la z solo mayusculas
+                                                   // $ limitas el patron definiendo su final.
+
+            errores.innerHTML="Introudce  un Nif valido (00000000-E).";	
+            document.getElementById("nif").focus();   
+    }else{
+        errores.innerHTML="";
+    }
+}
+nif.onblur= function(){
+    validarNif();
+};
+//Validar el E-MAIL. Utilizar una expresión regular que nos permita comprobar que el e-mail 
+//sigue un formato correcto. Si se produce algún error mostrar el mensaje en el contenedor "errores"
+// y poner el foco en el campo E-MAIL. Explicar las partes de la expresión regular mediante comentarios.
+
+const validarEmail = () => {
+    let input = document.getElementById("email").value; 
+    if (!input.match(/^[a-zA-Z0-9+_.-]+[@]+[a-zA-Z0-9+_-]+[.]+[a-z]{2,6}$/) ) { 
+                                                    //^ es para limitar patron al principio
+                                                   //[0-9+_.-] cualquier numero del 0 al 9 y los simbolos +.-_  
+                                                   //[@] una sola arroba o un solo punto
+                                                   //[a-z]{2,6} letras minimo dos maximo 6 para los .com . world ...
+                                                   // $ limitas el patron definiendo su final.
+
+            errores.innerHTML="Introudce  un email valido.";	
+            document.getElementById("email").focus();   
+    }else{
+        errores.innerHTML="";
+    }
+}
+email.onblur= function(){
+    validarEmail();
+};
