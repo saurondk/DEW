@@ -18,19 +18,19 @@ formulario.onsubmit= function(){
 }
 
 //Cada vez que los campos NOMBRE y APELLIDOS pierdan el foco, el contenido que se haya escrito en esos campos se convertirá a mayúsculas.
-nombre.onblur= function(){
-    document.getElementById("nombre").value=document.getElementById("nombre").value.toUpperCase();
+/*nombre.onblur= function(){
+    
 }
 apellidos.onblur= function(){
-    document.getElementById("apellidos").value=document.getElementById("apellidos").value.toUpperCase();
-}
+   
+}*/
 
 //Realizar una función que valide los campos de texto NOMBRE y APELLIDOS. 
 //Si se produce algún error mostrar el mensaje en el contenedor "errores" y poner el foco en los campos correspondientes.
 
 const validarnombreApellido = (idcampo) => {
     let input = document.getElementById(idcampo).value;
-    if ( input.match(/\D/))
+    if ( input.match(/^[\D]{2,40}$/))
     {
         errores.innerHTML="";
     }
@@ -42,9 +42,11 @@ const validarnombreApellido = (idcampo) => {
     
 }
 nombre.onblur= function(){
+    document.getElementById("nombre").value=document.getElementById("nombre").value.toUpperCase();
     validarnombreApellido("nombre");
 }
 apellidos.onblur= function(){
+    document.getElementById("apellidos").value=document.getElementById("apellidos").value.toUpperCase();
     validarnombreApellido("apellidos");
 }
 
@@ -115,3 +117,53 @@ const validarEmail = () => {
 email.onblur= function(){
     validarEmail();
 };
+//Validar que se haya seleccionado alguna de las PROVINCIAS.
+// Si se produce algún error mostrar el mensaje en el contenedor "errores"
+//  y poner el foco en el campo PROVINCIA.
+
+const validarProvincia = () => {
+    let provincia = document.getElementById("provincia");
+   
+    if (provincia.selectedIndex==0){
+        errores.innerHTML="Introduce una provincia";
+        document.getElementById("provincia").focus();
+    }else{
+        errores.innerHTML="";
+    }
+    
+}
+provincia.onblur= function () {
+        validarProvincia();
+}
+//Validar el campo FECHA utilizando una expresión regular.
+// Debe cumplir alguno de los siguientes formatos: dd/mm/aaaa o dd-mm-aaaa.
+// No se pide validar que sea una fecha de calendario correcta.
+// Si se produce algún error mostrar el mensaje en el contenedor "errores"
+// y poner el foco en el campo FECHA. Explicar las partes de la expresión regular mediante comentarios.
+const validarFecha = () => {
+    let input = document.getElementById("fecha").value; 
+    if (!input.match(/^[\d]{2}([/]?||[-]?)[\d]{2}([/]?||[-]?)[\d]{4}$/) ) { 
+                                                   
+
+            errores.innerHTML="Introudce  una fecha valida.";	
+            document.getElementById("fecha").focus();   
+    }else{
+        errores.innerHTML="";
+    }
+}
+fecha.onblur= function(){
+    validarFecha();
+};
+
+// Validar el campo TELEFONO utilizando una expresión regular. Debe permitir 9 dígitos obligatorios. 
+// Si se produce algún error mostrar el mensaje en el contenedor "errores" y poner el foco en el campo TELEFONO. 
+// Explicar las partes de la expresión regular mediante comentarios.
+
+const validarTelefonos =()=>{
+
+    let input= document.getElementById("telefono").value
+
+    if()
+
+} 
+    
