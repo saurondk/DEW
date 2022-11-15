@@ -13,9 +13,24 @@ function comprobar(respuesta){
     return correcto;
 
 }
+
 enviar.onclick= function(){
+    contadoraciertos=0;
 var pregunta1= document.querySelector('input[name="1"]:checked').value;
 var comprobar1= comprobar(pregunta1);
+var elemento = document.createElement("span");
+elemento.setAttribute("id", "uno");
+document.querySelector('input[name="1"]:checked').insertAdjacentElement("afterend",elemento);
+
+console.log(comprobar1);
+    if(comprobar1==true){
+    contadoraciertos++;
+    console.log(comprobar1);
+   document.getElementById("uno").innerHTML=" &#x2714;&#xFE0F;"
+    }else{
+        document.getElementById("uno").innerHTML="<b> &#10060;</b>"
+    }
+    
 var pregunta2= document.querySelector('input[name="2"]:checked').value;
 var comprobar2= comprobar(pregunta2);
 var pregunta3= document.querySelector('input[name="3"]:checked').value;
