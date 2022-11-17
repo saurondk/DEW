@@ -30,6 +30,7 @@ for (let i = 1; i <= 10; i++) {
         }
     } catch (error) {
         document.getElementById(i).innerHTML="No has respondido esta pregunta  --> ";
+        document.getElementById("p"+i).style.color="red";
     }
 
   
