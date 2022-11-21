@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase n2 sobre el dom</title>
+</head>
+<body>
+    <p>Mi primera clase de dom</p>
+
+    <ul id="todo_list">
+
+    </ul>
+    
+    <script type="text/javascript">
+        var parrafo1 = document.getElementsByTagName('p');
+        parrafo1[0].style.color = 'blue';
+        parrafo1[0].style.backgroundColor= 'yellow';
+
+        var tareas= [
+            "hace la colada","Preparar la cena","Tirar la basura"
+        ];
+
+        var todolist = document.querySelector('#todo_list');
+        console.log(todolist);
+
+        for (let i = 0; i < tareas.length; i++) {
+            var tarea = tareas[i];
+
+            var li = document.createElement('li');
+            li.id ='elemento'+i;
+            li.textContent =tarea;
+
+            todolist.appendChild(li);
+
+            
+        }
+        setTimeout(function() {
+            var elementoAEliminar = document.getElementById('elemento0');
+        todolist.removeChild(elementoAEliminar);
+        },2000)
+        
+
+
+
+    </script>
+</body>
+</html>
