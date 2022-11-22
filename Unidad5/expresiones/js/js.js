@@ -71,6 +71,56 @@ const validarComposicion =() =>{
 composicion.onblur = function(){
     validarComposicion();
 }
+
+
+//úmero de cuenta de EEUU: supongamos que un número de cuenta estadounidense tiene el 
+//siguiente formato:
+//Dos letras: suponemos que el valor de cada letra es del 1 al 26 (no hay ñ ni 
+  //  ll).
+   // • Dos dígitos: debe corresponderse con la suma de la primera letra y la 
+ //   segunda: en caso de que sea menor que 10 se pone el 0 delante.
+ //   • Un guión.
+  //  • Doce dígitos de cuenta.
+ //   • Un guión.
+ //   • Dos dígitos de control: los dos primeros deben ser la suma de los 6 primeros
+ //   dígitos de la cuenta dividido entre 6 y extrayendo solamente su parte entera;
+  //  y los dos últimos exactamente igual, pero con los 6 siguientes.
+  //  • Si el número está correcto se colocará en un campo de texto al lado del 
+  //  anterior, pero sin guiones: solamente los números y las letras.
+
 const validarCuenta =() =>{
+    var cuenta = document.getElementById("cuenta").value;
+    var arrayLetras=["","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","U","V","W","Z"];
+     var letra1=cuenta.charAt(0);
+    var letra2=cuenta.charAt(1);
     
+     var valorLetra1=arrayLetras.indexOf(letra1);
+     var valorLetra2=arrayLetras.indexOf(letra2);
+     var totalLetras= valorLetra1+valorLetra2;
+
+
+
+    if (totalLetras<10) {
+        totalLetras = 0+""+totalLetras;
+    }
+          console.log(totalLetras);  
+
+         var sumaDigCuenta =cuenta.charAt(2)+cuenta.charAt(3);
+         console.log(sumaDigCuenta);
+        if (cuenta.match(/^[L-l]{2}|[Ñ-ñ]{1}/)) {
+            document.getElementById("mensaje").innerHTML =  "No tiene el formato correcto";
+    
+        } else if(totalLetras!=sumaDigCuenta){
+            document.getElementById("mensaje").innerHTML =  "No tiene el formato correcto";
+        }else if(!cuenta.match(/\w{4}[-]/)){
+            document.getElementById("mensaje").innerHTML =  "No tiene el formato correcto";
+        }
+        
+    
+
+
+    
+}
+cuenta.onblur = function(){
+    validarCuenta();
 }
