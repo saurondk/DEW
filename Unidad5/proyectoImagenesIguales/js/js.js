@@ -37,7 +37,7 @@ function compara(imagen) {
             //reseteo de contador de clicks
             if (contadorImg == 2) {
                 contadorImg=0;
-                
+                //comparamos los class name del las imagenes
                 if (seleccionadasImg[1].className==seleccionadasImg[2].className) {
                    
                     //devuelve el elemento hermano siguiente
