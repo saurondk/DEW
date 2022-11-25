@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Incidencias</h1>
+    <form action="" onsubmit="return false">
+        <!-- poner required -->
+        <input type="date" name="" id="fecha" >Fecha de Creacion <br>
+        <input type="text" name="" id="nombre" >Nombre <br>
+        <input type="number" id="telefono">Telefono <br>
+        <input type="email" name="" id="email"> Email<br>
+        <input type="text" name="Sin asignar" id="responsable">Responsable<br>
+        <select name="" id="incidencia">
+            <option value="hardware" id="hardware">Hardware</option>
+            <option value="software" id="software">Software</option>
+            <option value="servicios" id="servicios">Servicios</option>
+            <option value="resolucion" id="resolucion">Resolucion de dudas</option>
+        </select> <br>
+        <input type="radio" name="1" id="baja">Baja <br>
+        <input type="radio" name="1" id="media">Media <br>
+        <input type="radio" name="1" id="alta">Urgente<br>
+      
+        <select name="" id="estado">
+            <option value="tramitada" id="tramitada">Tramitada</option>
+            <option value="En proceso" id="proceso">En Proceso</option>
+            <option value="Resuelta" id="resuelta">Resuelta</option>
+        </select> <br>
+        <input type="text" name="observaciones" id="observaciones">Observaciones <br>
+        <button type="submit" id="enviar">Enviar</button> <br>
+    
+    </form>
+    <div id="mensaje"></div>
+    <div id="result"></div>
+
+    <script src="index.js"></script>
+</body>
+</html>
