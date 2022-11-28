@@ -1,5 +1,4 @@
 
-
 //validaremos los Incidencias
 const validarNombre=() =>{
     var nombre = document.getElementById("nombre").value;

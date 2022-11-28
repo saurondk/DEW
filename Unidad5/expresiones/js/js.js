@@ -157,3 +157,13 @@ const validarCuenta =() =>{
 cuenta.onblur = function(){
     validarCuenta();
 }
+enviar.onclick= function(){
+    validarCocinero();
+    validarComposicion();
+    validarCuenta();
+    validarDestinatario();
+    validarGramos();
+    validarfecha();
+    validarNombre();
+    validarTelefono();
+}
