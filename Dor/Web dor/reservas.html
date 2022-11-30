@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap-5.2.2-dist/css/bootstrap.css">
+    <script src="css/bootstrap-5.2.2-dist/js/bootstrap.js"></script>
+    <script src="css/bootstrap-5.2.2-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap-5.2.2-dist/css/bootstrap-grid.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+    
+    <title>Document</title>
+</head>
+<body style="background-color:#0073b7;">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+ 
+<a href="index.html">
+  <img style="background-color:black ; background-image:url(img/estrellita.svg) ; background-size: auto 152px;
+    height: 100%;" src="img/logo_casa_Rosabel.svgz" width="auto" alt="">
+ </a>
+    
+    <!--  zona navegable-->
+    <div >
+    <nav style="background-color:#0073b7;" class="navbar navbar-expand-lg " aria-label="Tenth navbar example">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+            <ul class="navbar-nav fs-5">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Nuestras Casas</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="casarosabel.html">Casa Rosabel</a></li>
+                  <li><a class="dropdown-item" href="apartamento.html">Aparatamento</a></li>
+                  
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="lapalma.html">La palma</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="reservas.html">Reservas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  href="contacto.html">Contacto</a>
+              </li>
+              
+            </ul>
+          </div>
+          <div id="buscador">
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-dark" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- fin zona navegable-->   
+
+
+
+
+  
+
+<div class="row" style="background-color:#0073b7;">
+    <div class="col-3"></div>
+    <div class="col-6">
+        
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="book-accommodation-label"><span class="dialog-title">Reservas</span></h5>
+       
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="type" value="0">
+        <form id="book-form" action="/" novalidate="novalidate">
+
+
+            <div class="row">
+                <div class="col-12 col-sm-6 form-group">
+                    <label for="givenname" id="given-name-label">Nombre</label><br>
+                    <input name="givenname" class="form-control" required="" minlength="2" type="text" id="nombre" placeholder="Nombre">
+                </div>
+                <div class="col-12 col-sm-6 form-group">
+                    <label for="surname" id="surname-label">Apellido</label><br>
+                    <input name="surname" class="form-control" required="" minlength="2" type="text" id="surname" placeholder="Apellido">
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-12 col-sm-6 form-group">
+                    <label for="telephone" id="telephone-label">Numero de telefono</label><br>
+                    <input name="telephone" class="form-control" required="" minlength="7" digits="" type="text" id="telephone" placeholder=" codigo pais + numero">
+                </div>
+                <div class="col-12 col-sm-6 form-group">
+                    <label for="email" id="email-label">E-mail </label><br>
+                    <input class="form-control" name="email" required="" email="" type="email" id="email" placeholder=" E-mail">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-6 form-group">
+                    <label for="adult-count" id="adult-count-label">Numero de  Adultos (over 12 years)</label><br>
+                    <input name="adult-count" class="form-control" required="" digits="" min="1" type="number" id="adult-count" placeholder="Numero de adultos">
+                </div>
+                <div class="col-12 col-sm-6 form-group">
+                    <label for="children-count" id="children-count-label">Numero de niños (12 años o menos)</label><br>
+                    <input name="children-count" class="form-control" required="" digits="" min="0" type="number" id="children-count" placeholder="Numero de niños">
+                </div>
+            </div>
+
+             <div class="row">
+                <div class="col-12 col-sm-6 form-group">
+                    <label for="arrival" id="arrival-label">Fecha de entrada</label><br>
+                    <input name="arrival" class="form-control  read-only" type="date" required="" id="arrival" placeholder="">
+                    
+                </div>
+                <div class="col-12 col-sm-6 form-group">
+                    <label for="departure" id="departure-label">Fecha de Salida</label><br>
+                    <input name="departure" class="form-control read-only" required="" type="date" id="departure" placeholder="">
+                    
+                </div>
+            </div> 
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <br>
+        <button type="button" id="send-booking" class="btn btn-sm btn-primary mt-3">Siguente</button>
+        
+      </div>
+    </div>
+
+    </div>
+    <div class="col-2"></div>
+</div>
+
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
