@@ -5,9 +5,9 @@ const formulario = document.getElementById("formulario");
  // mostrar su contenido en el div antes mencionado. Nota: para poder actualizar el contenido de un contenedor o div la propiedad que tenemos que modificar para ese objeto es innerHTML.
  
 document.cookie = "intentos=0";
-varintentos =document.cookie;
-inicio =varintentos.indexOf("=")+1;
-valor = parseInt(varintentos.substring(inicio,varintentos.length));
+var intentos =document.cookie;
+inicio =intentos.indexOf("=")+1;
+valor = parseInt(intentos.substring(inicio,intentos.length));
 
 
 /*formulario.onsubmit= function(){
