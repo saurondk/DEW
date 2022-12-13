@@ -6,13 +6,23 @@ enviar.onclick = function() {
 
     console.log(ingredientes);
     
-    var tabla = '<table border="0">';
+    var tabla =document.querySelector('#caja');
+     var th=document.createElement('th');
+        th.textContent='Los Ingredientes para tu pizza :';
+        tabla.appendChild(th);
     ingredientes.forEach(element => {
-        tabla += '<tr><td>' + element + '</td></tr>';
+        var tr = document.createElement('tr');
+        var td = document.createElement('td');
+        td.textContent = element.value;
+        tabla.appendChild(tr);
+        tr.appendChild(td);
+
+        console.log(tr);
+        console.log(td);
         console.log(element.value);
     });
 
-        tabla += '</table>';
+        
     
     
 }
