@@ -40,5 +40,10 @@ enviar.onclick = function () {
         console.log(masa.value);
     
 
-
+        var confirma = document.querySelector('#confirmar');
+        var boton =document.createElement('button');
+        boton.classList.add('btn');
+        boton.classList.add('btn-danger');
+        boton.textContent = 'Confirma tu pizza';
+        confirma.appendChild(boton);
 }
