@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post" onsubmit="return false" id="formulario">
+    <label for="fecha">Introduce la fecha de creacion</label><br>
+    <input type="date" name="fecha" id="fecha"><br>
+    <label for="telefono">Telefono</label> <br>
+    <input type="tel" name="telefono" id="telefono"><br>
+    <label for="mail">Correo electrónico</label><br>
+    <input type="email" name="mail" id="mail"><br>
+
+    
+    
+     <input value="Sin asignar" name="responsable" id="responsable "selected hidden></input>
+
+<label for="servicios">Tipo de incidencia</label><br>
+    <select name="servicios" id="servicios">
+    <optgroup >
+        <option value=""selected disabled>Selecciona una incidencia</option>
+        <option value="Hardware">“Hardware”</option>
+        <option value="Software">“Software”</option>
+        <option value="Nuevos Servicios">“Solicitud de nuevos servicios"</option>
+        <option value="Resolucion de dudas">“Resolucion de dudas”</option>
+    </optgroup>
+</select><br>
+    <label for="">Prioridad</label> <br>
+<input type="radio" name="prioridad" id="baja" value="Baja">Baja <br>
+<input type="radio" name="prioridad" id="media" value="Media">Media <br>
+<input type="radio" name="prioridad" id="alta" value="Alta">Alta <br>
+
+
+    <input value="Tramitada" id="estado" name="estado" selected hidden></input>
+
+<label for="observaciones">Observaciones</label><br>
+<textarea name="textarea" rows="10" cols="50" name="observaciones" id="observaciones">Observaciones...</textarea>
+
+
+<button type="submit" >Enviar</button>
+    </form>
+    <table id="listadoIncidencias"></table>
+    <script type="module" src="js/js.js" defer></script>
+</body>
+</html>
+
+<!-- Fecha de creación (objeto Date)
+● Usuario: nombre del usuario que ha creado la incidencia.
+● Teléfono de contacto.
+● Correo electrónico de Contacto.
+● Responsable: personal que se encuentra atendiendo la incidencia.
+● Tipo de incidencia: Puede contener “Hardware”, “Software”, “Solicitud de nuevos
+servicios” y “Resolución de dudas”
+● Prioridad: Puede contener “baja”, “media”, “urgente”.
+● Estado: Puede contener “tramitada”, “en proceso”, “resuelta”.
+● Observaciones: se van a almacenar todas las notas/observaciones en el transcurso de
+la atención de la incidencia. (lista de textos) -->
