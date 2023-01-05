@@ -1,5 +1,5 @@
 export function Incidencia(fecha,telefono,mail,responsable,
-    servicios,prioridad,estado,observaciones) {
+    servicios,prioridad,estado,observaciones =[]) {
     
         this.fecha = fecha;
         this.telefono = telefono;

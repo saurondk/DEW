@@ -28,8 +28,9 @@ let incidencias=[];
 
 for (const incidencia of incidencias) {
     const fila = document.createElement('tr');
-
-    listadoIncidencias.fila.innerHTML += 
+    console.log(incidencia);
+    
+    fila.innerHTML = 
     `
     <td>${incidencia.fecha.toDateString()}</td>
     <td>${incidencia.telefono}</td>
@@ -50,12 +51,14 @@ for (const incidencia of incidencias) {
     fila.style.backgroundColor ='red';
     
   }
+    listadoIncidencias.appendChild(fila);
+
 }
     
   
 });
 function renderTable() {
-    listadoIncidencias.innerHTML = `
+    listadoIncidencias.innerHTML += `
       <tr>
         <th>Fecha de creación</th>
         <th>Usuario</th>
