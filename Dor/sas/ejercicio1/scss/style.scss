@@ -1,0 +1,31 @@
+$colorfondo:grey;
+
+body{
+    background-color:$colorfondo;
+}
+
+h1{
+    font-size: 40px;
+    color:orange;
+    text-align: center;
+}
+nav{
+   text-align: center;
+li{
+    font-size: larger;
+    display: inline;
+    text-decoration: none;
+    list-style: none;
+    color:white;
+    padding: 10px;
+    .ab{
+        
+            color:black;
+            text-decoration: none;
+            
+      
+        
+    }
+
+}
+}
