@@ -22,22 +22,27 @@ fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Rum')
             <a href="#"  id="${element.idDrink}" class="btn btn-primary">Pedir</a>
             </div>
             </div>`
-
+            
            
         });
-       
-        
+       respuesta.innerHTML += '</div>';
+      cargarCookieInicio();
+      contador();    
     }
-    respuesta.innerHTML += '</div>';
+    
+    carrito(data);
      enviar(data);
+
 } )
+
+
 function enviar(data) {
     data.drinks.forEach( element => {
-    const botonid= document.getElementById(`${element.idDrink}`);
-         
+    const botonid= document.getElementById(`${element.idDrink}`);  
         botonid.addEventListener('click', function(){
                 arrayp.push(element.idDrink);
-                setCookie("pedido",arrayp,7); //añadimos la cookie una vez ya hemos creado los set get y check.
+                setCookie('pedido',JSON.stringify(arrayp),7); //añadimos la cookie una vez ya hemos creado los set get y check.
+                contador();
                 console.log(arrayp);
             });
         });
@@ -54,6 +59,7 @@ function setCookie(pedido, value, expiry) {
   function getCookie(pedido) {
     return checkCookie(pedido);
   }
+
   function checkCookie(pedido) {
     let name = pedido + "=";
     let spli = document.cookie.split(';');
@@ -66,7 +72,54 @@ function setCookie(pedido, value, expiry) {
         return char.substring(name.length, char.length);
       }
     }
-    return "";
+    return null;
   }
   
   checkCookie();
+
+  function contador (){
+    var contador = document.getElementById("contador");
+    let cuenta = arrayp.length;
+    contador.innerHTML=cuenta;
+
+  }
+
+  function carrito(data){
+    if (checkCookie('pedido')==null) {
+      console.log("el pedido aun no está");
+
+  }else{
+    var tabla = document.getElementById("tablaPedido");
+    arrayp.forEach(element => {
+      var tr = document.createElement("tr");
+      var td="";
+      var td2="";
+      data.drinks.forEach(elementos => {
+        if (element==elementos.idDrink){
+          td= document.createElement("td");
+          texto = document.createTextNode(elementos.strDrink);
+          td.appendChild(texto);
+          tr.appendChild(td);
+          td2 = document.createElement("td");
+          texto = document.createTextNode(elementos.idDrink)
+          td2.appendChild(texto);
+          tr.appendChild(td2);
+        }
+        tabla.appendChild(tr);
+      });
+    });
+    
+
+  }
+  }
+
+
+  function cargarCookieInicio() {	
+    if (checkCookie('pedido')==null) {
+      console.log("el pedido aun no está");
+
+  }else{
+    var readCookie = getCookie('pedido');
+    arrayp= JSON.parse(readCookie);
+
+  }}
