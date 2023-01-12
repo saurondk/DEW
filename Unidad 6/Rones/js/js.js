@@ -11,11 +11,11 @@ fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Rum')
 
     }else{
         
-        respuesta.innerHTML += '<div class="card-deck">'
+        respuesta.innerHTML += '<div class="card-deck mt-5">'
         data.drinks.forEach( element => {
             var imagen = element.strDrinkThumb;
             var titulo = element.strDrink;
-            respuesta.innerHTML += `<div class="card mb-3 me-3" style="width: 18rem;"> 
+            respuesta.innerHTML += `<div class="card mb-5 mt-2" style="width: 20rem;"> 
             <img src="${imagen}" class="card-img-top" alt="${titulo}">
             <div class="card-body"><h5 class="card-title">${titulo}</h5>
             <p class="card-text">${element.idDrink}</p>
@@ -43,6 +43,8 @@ function enviar(data) {
                 arrayp.push(element.idDrink);
                 setCookie('pedido',JSON.stringify(arrayp),7); //añadimos la cookie una vez ya hemos creado los set get y check.
                 contador();
+                carrito(data);
+              
                 console.log(arrayp);
             });
         });
@@ -77,6 +79,8 @@ function setCookie(pedido, value, expiry) {
   
   checkCookie();
 
+  
+
   function contador (){
     var contador = document.getElementById("contador");
     let cuenta = arrayp.length;
@@ -90,6 +94,8 @@ function setCookie(pedido, value, expiry) {
 
   }else{
     var tabla = document.getElementById("tablaPedido");
+    borrarNodo(tabla);
+    tabla.innerHTML="<tr><td>Bebida</td><td>Id</td></tr>";
     arrayp.forEach(element => {
       var tr = document.createElement("tr");
       var td="";
@@ -123,3 +129,34 @@ function setCookie(pedido, value, expiry) {
     arrayp= JSON.parse(readCookie);
 
   }}
+
+// borramos nodo el primer nodo que le pasemos por parametro
+  function borrarNodo (nodo){
+    while (nodo.firstChild){
+      nodo.removeChild(nodo.firstChild);
+    }
+  }
+//
+  
+
+
+  var pdfButton = document.getElementById('botonEnviar');
+
+  pdfButton.addEventListener('click', function() {
+    var doc = new jsPDF();
+
+    // Get the HTML code from the page
+    var source = document.getElementById('pedido').innerHTML;
+
+    // Convert the HTML code to a PDF
+    doc.fromHTML(source, 15, 15, {
+      'width': 170
+    });
+
+    // Save the PDF to the user's device
+    doc.save('Cocktail_list.pdf');
+    document.cookie = 'pedido=;max-age=0;';
+    window.location.reload();
+
+  });
+
