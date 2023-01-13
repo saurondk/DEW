@@ -54,7 +54,10 @@ body nav {
   margin-top: 1%;
   text-align: center;
 }
-body nav li {
+body nav button {
+  color: black !important;
+}
+body nav div {
   display: inline;
   text-decoration: none;
   list-style: none;
@@ -63,12 +66,13 @@ body nav li {
   margin: 0%;
   font-size: 1.1rem;
   font-weight: 400;
+  background-color: rgb(133, 174, 235) !important;
 }
-body nav li .ab {
+body nav div .ab {
   color: black;
   text-decoration: none;
 }
-body nav li a:hover {
+body nav div a:hover {
   font-weight: 700;
   color: red;
 }
