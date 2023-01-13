@@ -1,2 +1,8 @@
  $color:rgb(133, 174, 235);
- @function 
+// El color del título de la página debe venir de una @function escrita en _variables.scss que genere un color aleatorio al compilar de componente rojo (0 en el resto).
+@function colorfondo() {
+    $red: floor(random(256));
+    $green: 0;
+    $blue: 0;
+    @return rgba($red, $green, $blue, 1);
+  }
