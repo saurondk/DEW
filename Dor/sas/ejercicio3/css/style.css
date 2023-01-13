@@ -26,6 +26,7 @@ body a:visited {
 body h1 {
   font-weight: 700;
   font-size: 3rem;
+  color: rgb(169, 0, 0);
 }
 body h2 {
   font-weight: 700;
