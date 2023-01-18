@@ -2,16 +2,15 @@
  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap');
  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
  @import '_variables';
+ 
 
  body {
+   @include fuenteCuerpo;
     max-width: 1400px;
     margin: 0;
     margin-left: auto;
     margin-right: auto;
     justify-content: center;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
     text-decoration: none;
 
     a:link {
@@ -29,53 +28,48 @@
     }
 
     h1 {
-       font-weight: 700;
+      @include fuente;
+      
        font-size: 3rem;
        color:colorfondo();
     }
 
     h2 {
-       font-weight: 700;
+    @include fuente;
        font-size: 2rem;
+       color:colorSubtitulo();
     }
 
     h3 {
-       font-weight: 700;
+       @include fuente;
        font-size: 1.5rem;
     }
 
     header {
        background-color:$color;
        margin: 0;
-       padding: 2%;
+       padding: 1%;
 
        img {
+         float: left;
           align-items: left;
           width: 10%;
+
        }
 
        h1,
        h2 {
+         
           text-align: center;
        }
     }
 
     nav {
-       max-width: 100%;
-       background-color: $color;
-       margin-top: 1%;
-       text-align: center;
+      @include nav;
       
        li {
          
-          display: inline;
-          text-decoration: none;
-          list-style: none;
-          color: white;
-          padding: 6%;
-          margin: 0%;
-          font-size: 1.1rem;
-          font-weight: 400;
+          @include navLi;
 
           .ab {
 
@@ -107,5 +101,19 @@
          margin-top: 10px;
       }
     }
+    .parent {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-column-gap: 5px;
+      grid-row-gap: 5px;
+       article{
+
+          img{
+            float:left;
+            width: 5em;
+          }
+       }
+      }
 
  }

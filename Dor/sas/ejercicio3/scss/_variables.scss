@@ -1,8 +1,44 @@
  $color:rgb(133, 174, 235);
 // El color del título de la página debe venir de una @function escrita en _variables.scss que genere un color aleatorio al compilar de componente rojo (0 en el resto).
+
+
 @function colorfondo() {
     $red: floor(random(256));
     $green: 0;
     $blue: 0;
     @return rgba($red, $green, $blue, 1);
+  }
+  @function colorSubtitulo(){
+    $red :0;
+    $green: floor(random(256));
+    $blue:0;
+    @return rgba($red, $green, $blue, 1);
+  }
+
+  @mixin fuente {
+    text-decoration: none;
+    font-weight: 700;
+  }
+  @mixin fuenteCuerpo {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+
+  @mixin navLi {
+          display: inline;
+          text-decoration: none;
+          list-style: none;
+          color: white;
+          padding: 6%;
+          margin: 0%;
+          font-size: 1.1rem;
+          font-weight: 400;
+  }
+  
+  @mixin nav {
+    max-width: 100%;
+    background-color: $color;
+    margin-top: 1%;
+    text-align: center;
   }
