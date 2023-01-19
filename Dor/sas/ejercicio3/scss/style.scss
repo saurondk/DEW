@@ -107,13 +107,18 @@
       grid-template-rows: repeat(2, 1fr);
       grid-column-gap: 5px;
       grid-row-gap: 5px;
-       article{
-
-          img{
-            float:left;
-            width: 5em;
-          }
+      
+      @for $i from 1 through 6 {
+       article:nth-child(#{$i}){
+         background-color: colorfondoArticle();
        }
       }
+          img{
+            float:left;
+            width: 25%;
+          }
+       }
+      
+      }
 
- }
+ 

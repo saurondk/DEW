@@ -15,6 +15,19 @@
     @return rgba($red, $green, $blue, 1);
   }
 
+  @function colorfondoArticle() {
+    @for $i from 1 through 6 {
+      $red: floor(random(256));
+      $green: floor(random(256));
+      $blue: floor(random(256));
+      $color: rgba($red, $green, $blue, 0.5);
+     
+        @return $color;
+      
+    }
+  }
+
+
   @mixin fuente {
     text-decoration: none;
     font-weight: 700;
