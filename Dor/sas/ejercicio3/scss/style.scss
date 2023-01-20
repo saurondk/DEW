@@ -2,10 +2,10 @@
  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap');
  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
  @import '_variables';
- 
+
 
  body {
-   @include fuenteCuerpo;
+    @include fuenteCuerpo;
     max-width: 1400px;
     margin: 0;
     margin-left: auto;
@@ -28,16 +28,16 @@
     }
 
     h1 {
-      @include fuente;
-      
+       @include fuente;
+
        font-size: 3rem;
-       color:colorfondo();
+       color: colorfondo();
     }
 
     h2 {
-    @include fuente;
+       @include fuente;
        font-size: 2rem;
-       color:colorSubtitulo();
+       color: colorSubtitulo();
     }
 
     h3 {
@@ -46,12 +46,12 @@
     }
 
     header {
-       background-color:$color;
+       background-color: $color;
        margin: 0;
        padding: 1%;
 
        img {
-         float: left;
+          float: left;
           align-items: left;
           width: 10%;
 
@@ -59,16 +59,16 @@
 
        h1,
        h2 {
-         
+
           text-align: center;
        }
     }
 
     nav {
-      @include nav;
-      
+       @include nav;
+
        li {
-         
+
           @include navLi;
 
           .ab {
@@ -77,48 +77,133 @@
              text-decoration: none;
 
           }
-          a:hover{
-            font-weight: 700;
-            color:red;
-          }
-       }
-    }
-    section{
-      min-height: 20em;
-    }
-    footer{
-      text-align: center;
-      img{
-         width: 3em;
-         margin: 10px;
-      }
-      div{
-         background-color: $color;
-      }
-      p{
-         background-color: $color;
-         font-size: 0.8rem;
-         margin-top: 10px;
-      }
-    }
-    .parent {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-      grid-column-gap: 5px;
-      grid-row-gap: 5px;
-      
-      @for $i from 1 through 6 {
-       article:nth-child(#{$i}){
-         background-color: colorfondoArticle();
-       }
-      }
-          img{
-            float:left;
-            width: 25%;
-          }
-       }
-      
-      }
 
- 
+          a:hover {
+             font-weight: 700;
+             color: red;
+          }
+       }
+    }
+
+    section {
+       min-height: 20em;
+    }
+
+    footer {
+       text-align: center;
+
+       img {
+          width: 3em;
+          margin: 10px;
+       }
+
+       div {
+          background-color: $color;
+       }
+
+       p {
+          background-color: $color;
+          font-size: 0.8rem;
+          margin-top: 10px;
+       }
+    }
+
+    .parent {
+       display: grid;
+       grid-template-columns: repeat(3, 1fr);
+       grid-template-rows: repeat(2, 1fr);
+       grid-column-gap: 5px;
+       grid-row-gap: 5px;
+
+       @for $i from 1 through 6 {
+          article:nth-child(#{$i}) {
+             background-color: colorfondoArticle();
+          }
+       }
+
+       img {
+          float: left;
+          width: 25%;
+       }
+    }
+
+    @media screen and (max-width: 992px) and (min-width: 768px) {
+       .parent {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: 1fr;
+          grid-column-gap: 5px;
+          grid-row-gap: 5px;
+
+          @for $i from 1 through 6 {
+             article:nth-child(#{$i}) {
+                background-color: colorfondoArticle();
+             }
+          }
+
+          img {
+             float: left;
+             width: 25%;
+          }
+       }
+    }
+
+    @media screen and (max-width: 768px) {
+
+       a {
+          display: block;
+
+          img {
+
+             display: block;
+             float: none;
+             align-items: center;
+             margin: auto;
+
+
+          }
+       }
+
+       nav {
+          @include nav;
+
+          li {
+
+             padding: 0%;
+
+             .ab {
+
+                color: black;
+                text-decoration: none;
+
+             }
+
+             a:hover {
+                font-weight: 700;
+                color: red;
+             }
+          }
+       }
+
+       .parent {
+          display: grid;
+          grid-template-columns: repeat(1, 1fr);
+          grid-template-rows: 1fr;
+          grid-column-gap: 0px;
+          grid-row-gap: 0px;
+
+          @for $i from 1 through 6 {
+             article:nth-child(#{$i}) {
+                background-color: colorfondoArticle();
+             }
+          }
+
+          img {
+             float: left;
+             width: 25%;
+          }
+       }
+    }
+
+
+ }
