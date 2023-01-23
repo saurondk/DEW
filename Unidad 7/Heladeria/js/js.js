@@ -25,7 +25,7 @@ async function kitchen() {
     
     try{
         await time (2000)
-        console.log(`${stocks.fruits[0]} was selected`);
+        console.log(`${stocks.fruits[0]} ha sido elegida`);
         await time(0000)
         console.log(`Production has started`);
         await time(2000)
@@ -50,5 +50,21 @@ async function kitchen() {
         console.log('Day ended, shop is closed');
     }
 }
+window.onload = function() {
+    hide(document.querySelector('.formato'));
+};
+//kitchen();
+let frutas;
+let ingredientes = document.querySelectorAll('.formato');
+enviar.onclick = function(){
+frutas =document.querySelectorAll('input[name="fruits"]:checked');
 
-kitchen();
+};
+
+const hide = elem => {
+    elem.style.display = 'none'
+    elem.style.visibility = 'hidden'
+  }
+
+
+
