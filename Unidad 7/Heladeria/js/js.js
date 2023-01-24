@@ -70,7 +70,7 @@ ocultar(formato);
 mostrar(toppings); 
 formato.classList.add('cambio'); 
 }
-
+let invisible = document.getElementById('resultadoh');
 //seccion de toppings
 let toppings = document.getElementById('toppings'); //para ocultar con click
 let cobertura;
@@ -79,6 +79,10 @@ cobertura = document.querySelector('input[name="toppings"]:checked');
 stocks.toppings=cobertura.value; 
 ocultar(toppings);
 toppings.classList.add('cambio');
+ 
+invisible.classList.remove('invisible');
+invisible.classList.add('showinvisible');
+
 kitchen();
 }
 //helado
@@ -126,12 +130,16 @@ async function kitchen() {
 
         await time(2000)
         var contenido8= ('Tu helado esta listo ya puedes recogerlo')
+        
        h2.textContent= contenido8;
+
     }
     catch(error){
         console.log('customer left',error);
     }
     finally{
+        invisible.classList.remove('showinvisible');
+        invisible.classList.add('invisible');
         console.log('Day ended, shop is closed');
     }
 }
