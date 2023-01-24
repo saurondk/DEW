@@ -24,12 +24,19 @@ function time(ms) {
 
 
 
+
 // constantantes que ocultan o muestran
 const ocultar = elem => {
-    elem.style.display = 'none';   
+    setTimeout(() => {
+        elem.style.display = 'none';  
+    }, 2000);
+     
   }
 const mostrar = elem=>{
-    elem.style.display= 'flex';
+    setTimeout(() => {
+        elem.style.display= 'flex'; 
+    }, 2000);
+    
 }  
 
 
@@ -49,6 +56,7 @@ ingredientes =document.getElementById('ingredientes');
 console.log(frutas);
 ocultar(ingredientes);
 mostrar(formato);
+ingredientes.classList.add('cambio');
 };
 
 //seccion de formato
@@ -59,30 +67,34 @@ enviar2.onclick = function(){
 recipiente = document.querySelector('input[name="holder"]:checked');
 stocks.holder=recipiente.value;
 ocultar(formato);  
-mostrar(toppings);  
+mostrar(toppings); 
+formato.classList.add('cambio'); 
 }
 
 //seccion de toppings
 let toppings = document.getElementById('toppings'); //para ocultar con click
 let cobertura;
 finalizar.onclick = function(){
-cobertura = document.querySelector('input[name="toppings"]');
-console.log(cobertura);   
+cobertura = document.querySelector('input[name="toppings"]:checked');
+stocks.toppings=cobertura.value; 
 ocultar(toppings);
+toppings.classList.add('cambio');
 kitchen();
 }
+//helado
 
 
+let resultado = document.getElementById('resultado');
 async function kitchen() {
     
     try{
-        await time (1000)
+        await time (2000)
         
         var contenido='Has elegido ';
             stocks.fruits.forEach(element => {
                 contenido+=element+', ';
             });   
-        contenido += ' procedemos a preparar tu helado.';
+        contenido += 'procedemos a preparar tu helado.';
 
         let resultado = document.querySelector('#resultado');
         let h2 =document.createElement('h2');
@@ -108,10 +120,13 @@ async function kitchen() {
         var contenido6 =(`Colocando tu helado en un ${stocks.holder}`);
         h2.textContent = contenido6;    
         await time(3000)
+        var contenido7 = (`${stocks.toppings} como topping`);
+        h2.textContent =contenido7;
         console.log(`${stocks.toppings[0]} as toppings`)
-    
+
         await time(2000)
-        console.log("Serve Ice Cream")
+        var contenido8= ('Tu helado esta listo ya puedes recogerlo')
+       h2.textContent= contenido8;
     }
     catch(error){
         console.log('customer left',error);
@@ -120,3 +135,4 @@ async function kitchen() {
         console.log('Day ended, shop is closed');
     }
 }
+

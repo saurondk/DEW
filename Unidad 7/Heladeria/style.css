@@ -5,3 +5,128 @@
 #toppings{
     display: none;
 }
+.cambio{
+
+    animation: hideMe 2s forwards;
+}
+@keyframes hideMe{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+
+
+  
+  .container {
+    height: 280px;
+    width: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .popsicle {
+    height: 180px;
+    width: 120px;
+    border-radius: 55px 55px 10px 10px;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    overflow: hidden;
+    -webkit-animation: float 2s ease-in infinite alternate;
+            animation: float 2s ease-in infinite alternate;
+  }
+  .popsicle:before {
+    content: "";
+    height: 120%;
+    width: 140%;
+    position: absolute;
+    left: -20%;
+    top: -10%;
+    background-image: linear-gradient(0deg, #F63999 25%, #30dcf6 25%, #30dcf6 50%, #f2d200 50%, #f2d200 75%, #70ca5c 75%);
+    display: block;
+    transform: rotate(-20deg);
+    -webkit-animation: magic 2.5s linear infinite;
+            animation: magic 2.5s linear infinite;
+  }
+  @-webkit-keyframes magic {
+    to {
+      background-position: 0 210px;
+    }
+  }
+  @keyframes magic {
+    to {
+      background-position: 0 210px;
+    }
+  }
+  .helado{
+    
+  }
+  .popsicle:after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    width: 13px;
+    height: 120px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.35);
+  }
+  
+  .stick {
+    width: 38px;
+    height: 45px;
+    background: #E09C5F;
+    border-radius: 0 0 12px 12px;
+    display: block;
+    margin: 0 auto;
+    -webkit-animation: float 2s ease-in infinite alternate;
+            animation: float 2s ease-in infinite alternate;
+  }
+  .stick:after {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 14px;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  
+  @-webkit-keyframes float {
+    to {
+      transform: translateY(20px);
+    }
+  }
+  
+  @keyframes float {
+    to {
+      transform: translateY(20px);
+    }
+  }
+  .shadow {
+    width: 124px;
+    height: 35px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 60px/22px;
+    display: block;
+    margin: 0 auto;
+    transform: scaleY(0.7) translateY(30px);
+    -webkit-animation: shad 2s ease-in infinite alternate;
+            animation: shad 2s ease-in infinite alternate;
+  }
+  
+  @-webkit-keyframes shad {
+    to {
+      transform: scaleX(0.9) scaleY(0.7) translateY(30px);
+    }
+  }
+  
+  @keyframes shad {
+    to {
+      transform: scaleX(0.9) scaleY(0.7) translateY(30px);
+    }
+  }
