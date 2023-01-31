@@ -1,11 +1,12 @@
 
     const options = {
         method: 'GET',
-        headers: {
-            
+        headers: { 
+             'Access-Control-Allow-Origin':'*',
+             
         }
     };
-   
+   const urlacceso= 'http://cors-anywhere.herokuapp.com';
     let datos;
     const container = document.querySelector('.container'); // se usa en crear tarjeta se pone aqui para ambito global
    const fetchData =fetch('https://www.amiiboapi.com/api/amiibo/', options)
@@ -35,9 +36,9 @@
         });
 
 
-  //creamos la tarjeta que va a conteneer todas las fotos y la informacion de la API
+  //creamos la tarjeta que va span conteneer todas las fotos y la informacion de la API
         async function creaTarjeta(variablefetched) {
-            await variablefetched; // espera a que los datos se obtengan antes de modificarlos
+            await variablefetched; // espera span que los datos se obtengan antes de modificarlos
             datos.amiibo.map(figura => {
                 
                 const card = document.createElement('div');
@@ -60,7 +61,7 @@
                 text.classList.add('card-text');
                 text.textContent = figura.name;
 
-                const boton = document.createElement('a');
+                const boton = document.createElement('span');
                 boton.setAttribute('class', 'btn btn-primary');
                 boton.setAttribute('id',`${figura.tail}`);
                 console.log(figura.tail)
@@ -112,7 +113,7 @@ creaTarjeta(fetchData);
          container.appendChild(error);
          });
          borrarNodo(container); //borramos la informacion del container 
-         creaTarjeta(fetchDataPersonaje); // llamamos a la funcion crear tarjeta pero solo con el personaje que se le pasa por el input
+         creaTarjeta(fetchDataPersonaje); // llamamos span la funcion crear tarjeta pero solo con el personaje que se le pasa por el input
         }
 
 
@@ -141,21 +142,54 @@ const fetchDataCategoria = fetch('https://www.amiiboapi.com/api/amiibo/', option
 
   
     // Obtener todas las series de juegos únicas
-    const uniqueSeries = [...new Set(datos.amiibo.map(amiibo => amiibo.gameSeries))];
+    const uniqueSeries = [...new Set(datos.amiibo.map(amiibo => amiibo.amiiboSeries))];
     uniqueSeries.sort();
     console.log(uniqueSeries);
 
     // Crear un elemento de lista para cada serie de juegos única
     uniqueSeries.forEach(series => {
       const li = document.createElement('li');
-      const a = document.createElement('a');
-      a.classList.add('dropdown-item');
-      a.classList.add('categoriaEnlace');
-      a.setAttribute('href',`https://www.amiiboapi.com/api/amiibo/?gameseries=${series}`);// le ponemos el valor de la serie a cada elemento
-      a.textContent = series;
-      li.appendChild(a);
+      li.addEventListener('click', () => {
+
+
+         const fetchCategoria =fetch(`https://www.amiiboapi.com/api/amiibo/?amiiboSeries=${series}`, options)
+        .then(response => response.json())
+        .then ((data)=>datos = data)
+        .then(response => {
+            //Creamos el contenerdor y el majeo de los errores.
+            
+            console.log(response);  
+            if(response.code === 400){
+                throw new Error( 'Api no disponible');
+                
+            } else if(response.code === 404){
+                throw new Error( 'No se ha encontrado la url ');
+            }  
+            
+            borrarNodo(container);
+            creaTarjeta(fetchCategoria);
+          
+        })
+        
+        .catch(err => {
+        const container = document.querySelector('.container');     
+        const error = document.createElement('div');
+        error.textContent=err;
+        container.appendChild(error);
+        });
+
+
+
+      }
+      );
+      const span = document.createElement('span');
+      span.classList.add('dropdown-item');
+      span.classList.add('categoriaEnlace');
+      span.setAttribute('href',`https://www.amiiboapi.com/api/amiibo/?amiiboSeries=${series}`);// le ponemos el valor de la serie span cada elemento
+      span.textContent = series;
+      li.appendChild(span);
       dropdownMenu.appendChild(li);
-      console.log(a);
+      
       //creamos un listener para mostrar por categorias
       
     });
