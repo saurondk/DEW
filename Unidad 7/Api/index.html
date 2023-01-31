@@ -15,10 +15,23 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="index.html">Inicio</a>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            
+        <!-- menu desplegable -->
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Busqueda por Categoria
+              </a>
+              <ul class="dropdown-menu" id="categoria">
+                
+              </ul>
+            </li>
           </ul>
+        </div>
+        <!-- fin menu desplegable -->
+        
+        
+
           <form class="d-flex" role="search" onsubmit="return false">
             <input class="form-control me-2" type="search" placeholder="" id="buscarPersonaje" aria-label="Search ">
             <button class="btn btn-outline-dark" type="submit" id="buscar">Buscar</button>

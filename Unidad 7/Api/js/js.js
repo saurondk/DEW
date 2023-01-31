@@ -22,7 +22,7 @@
             }  
             
             
-            //creamos la tarjeta que va a conteneer todas las fotos y la informacion de la API
+          
           
         
         })
@@ -35,7 +35,7 @@
         });
 
 
-
+  //creamos la tarjeta que va a conteneer todas las fotos y la informacion de la API
         async function creaTarjeta(variablefetched) {
             await variablefetched; // espera a que los datos se obtengan antes de modificarlos
             datos.amiibo.map(figura => {
@@ -77,11 +77,11 @@
           }
 
 creaTarjeta(fetchData);
-        
+        // creamos un listener para la busqueda en la interfaz
         buscar.addEventListener('click',personaje);
 
         function personaje (){
-        var personaje = document.getElementById('buscarPersonaje').value;
+        var personaje = document.getElementById('buscarPersonaje').value; //cargamos el valor del input
         console.log(personaje);
 
          const fetchDataPersonaje  =fetch(`https://www.amiiboapi.com/api/amiibo/?name=${personaje}`, options)
@@ -109,12 +109,60 @@ creaTarjeta(fetchData);
          error.textContent=err;
          container.appendChild(error);
          });
-         borrarNodo(container);
-         creaTarjeta(fetchDataPersonaje);
+         borrarNodo(container); //borramos la informacion del container 
+         creaTarjeta(fetchDataPersonaje); // llamamos a la funcion crear tarjeta pero solo con el personaje que se le pasa por el input
         }
 
+
+
+// funcion borrar el nodo 
         function borrarNodo(nodo) {
             while (nodo.firstChild) {
               nodo.removeChild(nodo.firstChild);
             }
           }
+
+     
+
+const dropdownMenu = document.querySelector('#categoria');
+
+const fetchDataCategoria = fetch('https://www.amiiboapi.com/api/amiibo/', options)
+  .then(response => response.json())
+  .then(data => datos = data)
+  .then(response => {
+    console.log(response);
+    if (response.code === 400) {
+      throw new Error('Api no disponible');
+    } else if (response.code === 404) {
+      throw new Error('No se ha encontrado la URL');
+    }
+
+  
+    // Obtener todas las series de juegos únicas
+    const uniqueSeries = [...new Set(datos.amiibo.map(amiibo => amiibo.gameSeries))];
+    uniqueSeries.sort();
+    console.log(uniqueSeries);
+
+    // Crear un elemento de lista para cada serie de juegos única
+    uniqueSeries.forEach(series => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.classList.add('dropdown-item');
+      a.classList.add('categoriaEnlace');
+      
+      a.setAttribute('href',`https://www.amiiboapi.com/api/amiibo/?gameseries=${series}`);// le ponemos el valor de la serie a cada elemento
+      a.textContent = series;
+      li.appendChild(a);
+      dropdownMenu.appendChild(li);
+      console.log(a);
+      //creamos un listener para mostrar por categorias
+      
+    });
+  })
+  .catch(err => {
+    const error = document.createElement('div');
+    error.textContent = err;
+    container.appendChild(error);
+  });
+
+  
