@@ -1,0 +1,53 @@
+// Variables
+$primary-color: #d40000;
+$body-bg-color: #e3e3e3;
+$font-size: 1.2rem;
+
+// Mixins
+@mixin text-center {
+  text-align: center;
+}
+
+
+.logo {
+    font-size: 36px;
+    font-weight: bold;
+    color: #00bcd4;
+    text-shadow: 2px 2px #e3e3e3;
+    text-align: center;
+  }
+
+
+body {
+  background-color: $body-bg-color;
+  h1 {
+    @include text-center;
+    font-size: $font-size ;
+    margin-top: 2rem;
+  }
+}
+
+.card-deck {
+  margin-top: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .tarjeta{
+    width: 250px;
+    
+  }
+  .card-img-top {
+    width: auto;
+    height: 450px;
+    object-fit: cover;
+}
+  .card {
+    background-color: white;
+  
+    border-radius: 1rem;
+    box-shadow: 1px 1px 2px #e3e3e3;
+    &:hover {
+      box-shadow: 2px 2px 4px #ff0000;
+    }
+  }
+}

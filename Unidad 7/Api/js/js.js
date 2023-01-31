@@ -5,6 +5,7 @@
             
         }
     };
+   
     let datos;
     const container = document.querySelector('.container'); // se usa en crear tarjeta se pone aqui para ambito global
    const fetchData =fetch('https://www.amiiboapi.com/api/amiibo/', options)
@@ -24,7 +25,6 @@
             
           
           
-        
         })
         
         .catch(err => {
@@ -41,8 +41,8 @@
             datos.amiibo.map(figura => {
                 
                 const card = document.createElement('div');
-                card.classList.add('card', 'mb-3','col-4','mt-2','mb-5','ms-5');
-                card.setAttribute('style', 'width: 200px; height:500px;')
+                card.classList.add('card', 'mb-3','col-4','mt-2','mb-5','ms-5',);
+                card.classList.add('tarjeta');
     
                 const img = document.createElement('img');
                 img.src = figura.image;
@@ -62,6 +62,8 @@
 
                 const boton = document.createElement('a');
                 boton.setAttribute('class', 'btn btn-primary');
+                boton.setAttribute('id',`${figura.tail}`);
+                console.log(figura.tail)
                 boton.textContent='Añadir';
 
                 container.appendChild(card);
@@ -73,7 +75,7 @@
 
                 
             });
-          
+         
           }
 
 creaTarjeta(fetchData);
@@ -95,7 +97,7 @@ creaTarjeta(fetchData);
                  throw new Error( 'Api no disponible');
                  
              } else if(response.code === 404){
-                 throw new Error( 'No se ha encontrado la url ');
+                 throw new Error( 'No se ha encontrado la url, ten en cuenta que la busqueda de personaje debe de ser exacta por ejemplo : Mario o Luigi. ');
              }  
              
              
@@ -149,7 +151,6 @@ const fetchDataCategoria = fetch('https://www.amiiboapi.com/api/amiibo/', option
       const a = document.createElement('a');
       a.classList.add('dropdown-item');
       a.classList.add('categoriaEnlace');
-      
       a.setAttribute('href',`https://www.amiiboapi.com/api/amiibo/?gameseries=${series}`);// le ponemos el valor de la serie a cada elemento
       a.textContent = series;
       li.appendChild(a);
@@ -165,4 +166,3 @@ const fetchDataCategoria = fetch('https://www.amiiboapi.com/api/amiibo/', option
     container.appendChild(error);
   });
 
-  

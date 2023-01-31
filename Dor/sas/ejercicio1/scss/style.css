@@ -1,0 +1,25 @@
+body {
+  background-color: grey;
+}
+
+h1 {
+  font-size: 40px;
+  color: orange;
+  text-align: center;
+}
+
+nav {
+  text-align: center;
+}
+nav li {
+  font-size: larger;
+  display: inline;
+  text-decoration: none;
+  list-style: none;
+  color: white;
+  padding: 10px;
+}
+nav li .ab {
+  color: black;
+  text-decoration: none;
+}/*# sourceMappingURL=style.css.map */
