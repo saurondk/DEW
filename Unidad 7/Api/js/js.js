@@ -6,6 +6,7 @@
              
         }
     };
+    const video = document.querySelector('.videoWrapper');
    const urlacceso= 'http://cors-anywhere.herokuapp.com';
     let datos;
     const container = document.querySelector('.container'); // se usa en crear tarjeta se pone aqui para ambito global
@@ -112,6 +113,7 @@ creaTarjeta(fetchData);
          error.textContent=err;
          container.appendChild(error);
          });
+         borrarNodo(video);
          borrarNodo(container); //borramos la informacion del container 
          creaTarjeta(fetchDataPersonaje); // llamamos span la funcion crear tarjeta pero solo con el personaje que se le pasa por el input
         }
@@ -165,7 +167,7 @@ const fetchDataCategoria = fetch('https://www.amiiboapi.com/api/amiibo/', option
             } else if(response.code === 404){
                 throw new Error( 'No se ha encontrado la url ');
             }  
-            
+            borrarNodo(video);
             borrarNodo(container);
             creaTarjeta(fetchCategoria);
           
@@ -199,4 +201,18 @@ const fetchDataCategoria = fetch('https://www.amiiboapi.com/api/amiibo/', option
     error.textContent = err;
     container.appendChild(error);
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

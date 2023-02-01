@@ -8,9 +8,15 @@ $font-size: 1.2rem;
   text-align: center;
 }
 
+.left-image {
+  float: left !important;
+  margin-right: 10px;
+  width: 10em;
+  height: 5em;
+}
 
 .logo {
-    font-size: 36px;
+    font-size: 56px;
     font-weight: bold;
     color: #00bcd4;
     text-shadow: 2px 2px #e3e3e3;
@@ -32,6 +38,7 @@ body {
   justify-content: center;
   align-items: center;
   .tarjeta{
+    margin-top: 2rem;
     width: 250px;
     
   }
@@ -49,4 +56,19 @@ body {
       box-shadow: 2px 2px 4px #ff0000;
     }
   }
+}
+
+video{
+  border: 10px solid red;
+  border-radius: 20px;
+  margin-top: 2rem;
+  height: 490px;
+  width: 850px;
+}
+.nav-link{
+  font-size: 25px !important;
+  font-weight: bold;
+  color: #00bcd4 !important;
+  text-shadow: 2px 2px #e3e3e3;
+  text-align: center;
 }
