@@ -56,7 +56,7 @@ async function creaTarjeta(variablefetched) {
     const img = document.createElement('img');
     img.src = figura.image;
     img.classList.add('card-img-top');
-
+    img.classList.add('img-fluid');
     const cardBody = document.createElement('div');
     cardBody.classList.add('card-body');
 
@@ -112,17 +112,17 @@ function carrito(datos) {
     console.log("el pedido aun no está");
 
   } else {
-    var tabla = document.getElementById("tablaPedido");
-    borrarNodo(tabla);
-    tabla.innerHTML = "<tr><td>Bebida</td><td>Id</td><td>Borrar</td></tr>";
-    arraypedido.forEach(element => {
+    var tabla = document.getElementById("tablaPedido"); //invocamos a la tabla del offcanvas
+    borrarNodo(tabla);// en caso de que hubiera una tabla anterior la borramos
+    tabla.innerHTML = "<tr><td>Articulo</td><td>Id</td><td>Borrar</td></tr>"; // le añadimos a esa tabla los tr y td con los nombre de  los campos
+    arraypedido.forEach(element => {//recorrmos el arrya y cremos elementos para su contenido
       var tr = document.createElement("tr");
       var td = "";
       var td2 = "";
       var td3 = "";
-      datos.amiibo.forEach(elementos => {
+      datos.amiibo.forEach(elementos => { // hacemos un fetch de los datos que nos da la api y los comprobamos con los que tiene el array de pedidos si son iguales cremaos los nodos
         if (element == elementos.tail) {
-          td = document.createElement("td");
+          td = document.createElement("td");// añadimos los elementos en el carrito
           texto = document.createTextNode(elementos.name);
           td.appendChild(texto);
           tr.appendChild(td);
@@ -195,7 +195,7 @@ function personaje() {
     });
   borrarNodo(video);
   borrarNodo(container); //borramos la informacion del container 
-  creaTarjeta(fetchDataPersonaje); // llamamos span la funcion crear tarjeta pero solo con el personaje que se le pasa por el input
+  creaTarjeta(fetchDataPersonaje); // llamamos a la funcion crear tarjeta pero solo con el personaje que se le pasa por el input
 
 
 }
@@ -279,7 +279,7 @@ const fetchDataCategoria = fetch('https://www.amiiboapi.com/api/amiibo/', option
       li.appendChild(span);
       dropdownMenu.appendChild(li);
 
-      //creamos un listener para mostrar por categorias
+     
 
     });
   })
@@ -325,7 +325,7 @@ function contador() {
   contador.innerHTML = cuenta;
 
 }
-
+//funcion para que recarge la cookie al inicio de carga.
 function cargarCookieInicio() {
   if (checkCookie('pedido') == null) {
     console.log("el pedido aun no está");
