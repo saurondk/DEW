@@ -75,12 +75,20 @@ async function creaTarjeta(variablefetched) {
 
     boton.textContent = 'Añadir';
 
+    const botonInfo = document.createElement('span');
+    botonInfo.setAttribute('class', 'btn btn-primary');
+    botonInfo.setAttribute('data-bs-toggle','modal');
+    botonInfo.setAttribute('data-bs-target','#exampleModal');
+    botonInfo.textContent= '+ INFO';
+
     container.appendChild(card);
     card.appendChild(img);
     cardBody.appendChild(title);
     cardBody.appendChild(text);
     cardBody.appendChild(boton);
     card.appendChild(cardBody);
+    cardBody.appendChild(botonInfo);
+    
 
 
   });
