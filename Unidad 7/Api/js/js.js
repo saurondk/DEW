@@ -74,11 +74,12 @@ async function creaTarjeta(variablefetched) {
     boton.setAttribute('id', `${figura.tail}`);
 
     boton.textContent = 'Añadir';
-
+////////////////////creamos el boton de mas info con las clases del modal//////////////////
     const botonInfo = document.createElement('span');
-    botonInfo.setAttribute('class', 'btn btn-primary');
+    botonInfo.setAttribute('class', 'btn btn-primary  ms-1');
     botonInfo.setAttribute('data-bs-toggle','modal');
     botonInfo.setAttribute('data-bs-target','#exampleModal');
+    botonInfo.setAttribute('id', `${figura.tail+1}`);
     botonInfo.textContent= '+ INFO';
 
     container.appendChild(card);
@@ -92,6 +93,19 @@ async function creaTarjeta(variablefetched) {
 
 
   });
+//////////////////////Creamos boton +info/////////////////////////////////
+datos.amiibo.forEach(element=>{
+const botontailPlus1 = document.getElementById(`${element.tail+1}`);
+botontailPlus1.addEventListener('click', function() {
+  console.log(element.tail);
+if(botontailPlus1.id==element.tail+1){
+  console.log(element.tail);
+}
+})
+
+
+})
+
 ////////////////////creamos boton añadir en la tarjeta/////////////////////////////////////
   datos.amiibo.forEach(element => {
     const botontail = document.getElementById(`${element.tail}`);
