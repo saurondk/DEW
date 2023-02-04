@@ -16,9 +16,9 @@ cargarCookieInicio();
 contador();
 
 const video = document.querySelector('.videoWrapper');
-const urlacceso = 'http://cors-anywhere.herokuapp.com';
 let datos;
 const container = document.querySelector('.container'); // se usa en crear tarjeta se pone aqui para ambito global
+const modal = document.querySelector('#modal');
 const fetchData = fetch('https://www.amiiboapi.com/api/amiibo/', options)
   .then(response => response.json())
   .then((data) => datos = data)
@@ -98,9 +98,31 @@ datos.amiibo.forEach(element=>{
 const botontailPlus1 = document.getElementById(`${element.tail+1}`);
 botontailPlus1.addEventListener('click', function() {
   console.log(element.tail);
-if(botontailPlus1.id==element.tail+1){
-  console.log(element.tail);
-}
+  if(botontailPlus1.id==element.tail+1){
+    const divPadreExistente = modal.querySelector('.card');
+    if (divPadreExistente) {
+      modal.removeChild(divPadreExistente);
+    }
+    const divPadre = document.createElement('div');
+    divPadre.setAttribute('class','card');
+    divPadre.setAttribute('style','width:28rem;');
+    const img = document.createElement('img');
+    img.setAttribute('class','img-top');
+    img.src=element.image;
+    const body = document.createElement('div');
+    body.setAttribute('class','card-body');
+    const title = document.createElement('h5');
+    title.textContent= 'Nombre del articulo: '+ element.name;
+    const series = document.createElement('p');
+    series.setAttribute('class','card-text');
+    series.textContent= 'Serie del Articulo: '+ element.gameSeries
+    modal.appendChild(divPadre);
+    divPadre.appendChild(img);
+    divPadre.appendChild(body);
+    body.appendChild(title);
+    body.appendChild(series);
+  }
+  
 })
 
 
@@ -113,8 +135,8 @@ if(botontailPlus1.id==element.tail+1){
       arraypedido.push(element.tail);
       setCookie('pedido', JSON.stringify(arraypedido), 7);
       console.log(arraypedido);
-      carrito(datos);
-      cargarCookieInicio();
+      carrito(datos); //cargamos los posibles articulos que hubieran en el carrito
+      cargarCookieInicio(); //cargamos la cookie
 
     });
 

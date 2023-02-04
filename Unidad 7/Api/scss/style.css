@@ -1,11 +1,12 @@
 .left-image {
   float: left !important;
-  margin-right: 10px;
+  margin-right: 1vw;
   width: 10em;
   height: 5em;
 }
 
 .logo {
+  display: flex;
   font-size: 56px;
   font-weight: bold;
   color: #00bcd4;
@@ -23,14 +24,14 @@ body h1 {
 }
 
 .card-deck {
-  margin-top: 6rem;
+  margin-top: 6vw;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .card-deck .tarjeta {
-  margin-top: 2rem;
-  width: 250px;
+  margin: 2rem;
+  width: 15vw;
 }
 .card-deck .card-img-top {
   width: 100%;
@@ -44,15 +45,14 @@ body h1 {
   box-shadow: 1px 1px 2px #e3e3e3;
 }
 .card-deck .card:hover {
-  box-shadow: 2px 2px 4px #ff0000;
+  box-shadow: 2px 2px 4px #d40000;
 }
 
 video {
-  border: 10px solid red;
+  border: 10px solid #d40000;
   border-radius: 20px;
   margin-top: 2rem;
-  height: 490px;
-  width: 850px;
+  height: 25vw;
 }
 
 .nav-link {
@@ -61,4 +61,11 @@ video {
   color: #00bcd4 !important;
   text-shadow: 2px 2px #e3e3e3;
   text-align: center;
+}
+
+.mask {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
 }/*# sourceMappingURL=style.css.map */

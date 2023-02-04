@@ -27,13 +27,13 @@ body h1 {
   text-decoration: none;
   font-weight: 700;
   font-size: 3rem;
-  color: rgb(223, 0, 0);
+  color: rgb(179, 0, 0);
 }
 body h2 {
   text-decoration: none;
   font-weight: 700;
   font-size: 2rem;
-  color: rgb(0, 5, 0);
+  color: rgb(0, 157, 0);
 }
 body h3 {
   text-decoration: none;
@@ -105,22 +105,22 @@ body .parent {
   grid-row-gap: 5px;
 }
 body .parent article:nth-child(1) {
-  background-color: rgba(207, 149, 106, 0.5);
+  background-color: rgba(192, 70, 185, 0.5);
 }
 body .parent article:nth-child(2) {
-  background-color: rgba(4, 47, 176, 0.5);
+  background-color: rgba(78, 131, 138, 0.5);
 }
 body .parent article:nth-child(3) {
-  background-color: rgba(158, 153, 129, 0.5);
+  background-color: rgba(79, 72, 190, 0.5);
 }
 body .parent article:nth-child(4) {
-  background-color: rgba(17, 215, 98, 0.5);
+  background-color: rgba(163, 14, 29, 0.5);
 }
 body .parent article:nth-child(5) {
-  background-color: rgba(226, 169, 111, 0.5);
+  background-color: rgba(36, 215, 231, 0.5);
 }
 body .parent article:nth-child(6) {
-  background-color: rgba(179, 149, 119, 0.5);
+  background-color: rgba(86, 147, 105, 0.5);
 }
 body .parent img {
   float: left;
@@ -135,22 +135,22 @@ body .parent img {
     grid-row-gap: 5px;
   }
   body .parent article:nth-child(1) {
-    background-color: rgba(141, 114, 223, 0.5);
+    background-color: rgba(15, 255, 191, 0.5);
   }
   body .parent article:nth-child(2) {
-    background-color: rgba(225, 19, 219, 0.5);
+    background-color: rgba(167, 132, 203, 0.5);
   }
   body .parent article:nth-child(3) {
-    background-color: rgba(219, 163, 63, 0.5);
+    background-color: rgba(34, 155, 240, 0.5);
   }
   body .parent article:nth-child(4) {
-    background-color: rgba(64, 34, 74, 0.5);
+    background-color: rgba(169, 11, 157, 0.5);
   }
   body .parent article:nth-child(5) {
-    background-color: rgba(72, 2, 100, 0.5);
+    background-color: rgba(53, 49, 3, 0.5);
   }
   body .parent article:nth-child(6) {
-    background-color: rgba(32, 61, 28, 0.5);
+    background-color: rgba(183, 110, 238, 0.5);
   }
   body .parent img {
     float: left;
@@ -192,22 +192,22 @@ body .parent img {
     grid-row-gap: 0px;
   }
   body .parent article:nth-child(1) {
-    background-color: rgba(243, 28, 241, 0.5);
+    background-color: rgba(224, 4, 191, 0.5);
   }
   body .parent article:nth-child(2) {
-    background-color: rgba(47, 48, 141, 0.5);
+    background-color: rgba(180, 47, 191, 0.5);
   }
   body .parent article:nth-child(3) {
-    background-color: rgba(119, 255, 23, 0.5);
+    background-color: rgba(181, 96, 31, 0.5);
   }
   body .parent article:nth-child(4) {
-    background-color: rgba(187, 142, 190, 0.5);
+    background-color: rgba(42, 129, 220, 0.5);
   }
   body .parent article:nth-child(5) {
-    background-color: rgba(44, 221, 199, 0.5);
+    background-color: rgba(74, 99, 133, 0.5);
   }
   body .parent article:nth-child(6) {
-    background-color: rgba(135, 123, 235, 0.5);
+    background-color: rgba(67, 68, 43, 0.5);
   }
   body .parent img {
     float: left;
