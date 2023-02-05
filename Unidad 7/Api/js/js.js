@@ -50,13 +50,15 @@ async function creaTarjeta(variablefetched) {
   datos.amiibo.map(figura => {
 
     const card = document.createElement('div');
-    card.classList.add('card', 'mb-3', 'col-4', 'mt-2', 'mb-5', 'ms-5',);
+    card.classList.add('card','col-lg-2','col-md-4','col-sm-8','col-8','ms-5','mt-2');
     card.classList.add('tarjeta');
+    
 
     const img = document.createElement('img');
     img.src = figura.image;
     img.classList.add('card-img-top');
     img.classList.add('img-fluid');
+    img.setAttribute('style','padding:1em;');
     const cardBody = document.createElement('div');
     cardBody.classList.add('card-body');
 
