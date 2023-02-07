@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
 
+
+import './ficherocss.css';
+import imagen from './img/pexels.jpg';
 function App() {
+  let nombre = 'Jab';
+  let caja=<div>Nombre</div>;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-         Curso de react
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="fondo">
+     <h1>Curso de React</h1>
+     <img src={imagen} className='im'></img>
+     <div>{nombre}</div>
+     <div>{caja}</div>
+     <input value={nombre}></input>
+     <br></br>
     </div>
   );
 }
