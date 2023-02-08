@@ -17,6 +17,7 @@ async function data(){
 
    
 const botonBuscar = document.getElementById('buscar');
+
    function noticiasFiltradas(datos){
     botonBuscar.addEventListener('click',()=>{
         const datosFiltrados = datos.articles.filter(escritor=>escritor.author == search.value);

@@ -1,12 +1,13 @@
 
-const titulo = document.querySelector('.tarjeta-head');
-const cuerpo = document.querySelector('.tarjeta-body');
 
+const container = document.querySelector('#container')
 window.addEventListener('DOMContentLoaded',async()=>{
    const datos= await fetchdatos();
-   console.log(typeof datos)
+   
    console.log(datos)
    crearTarjeta(datos);
+   datosFiltrados(datos);
+
 })
 
 async function fetchdatos(){
@@ -19,16 +20,56 @@ async function fetchdatos(){
 function crearTarjeta(datos){
 
     datos.data.forEach(element => {
-        const nombre = document.createElement('div');
-        nombre.textContent= element.name;
-        nombre.setAttribute('style','color:red');
-        titulo.appendChild(nombre);
-
-
-        const descripcion = document.createElement('div');
-        descripcion.textContent=element.description;
-        cuerpo.appendChild(descripcion);
+       
+        const titulo = document.createElement('h2');
+        titulo.setAttribute('style','color:red')
+        titulo.textContent = element.name;
+        const descripcion = document.createElement('p');
+        descripcion.textContent = element.description;
+        const enlace = document.createElement('a')
+        enlace.setAttribute('href',element.images[0].url)
+        enlace.textContent='Ver';
+        container.appendChild(titulo);
+        container.appendChild(descripcion);
+        container.appendChild(enlace);
         
     });
 
+    
+
+}
+function datosFiltrados(datos){
+    buscar.addEventListener('click',()=>{
+
+      const filtrados = datos.data.filter(titulo=>titulo.name == buscarInput.value);
+      crearTarjetaFiltrada(filtrados);
+    })
+
+
+}
+function crearTarjetaFiltrada(datos){
+    borrarNodo(container);
+    datos.forEach(element => {
+       
+        const titulo = document.createElement('h2');
+        titulo.setAttribute('style','color:red')
+        titulo.textContent = element.name;
+
+        const descripcion = document.createElement('p');
+        descripcion.textContent = element.description;
+        
+        const enlace = document.createElement('a')
+        enlace.setAttribute('href',element.images[0].url)
+        enlace.textContent='Ver';
+
+        container.appendChild(titulo);
+        container.appendChild(descripcion);
+        container.appendChild(enlace);
+        
+    });
+}
+function borrarNodo(nodo){
+    while(nodo.firstChild){
+        nodo.removeChild(nodo.firstChild);
+    }
 }
