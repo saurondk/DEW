@@ -3,15 +3,14 @@
 import './ficherocss.css';
 import imagen from './img/pexels.jpg';
 function App() {
-  let nombre = 'Jab';
+  let nombre = [{name:'Jab',edad:18},{name:'Paco',edad:120}];
   let caja=<div>Nombre</div>;
   return (
     <div className="fondo">
-     <h1>Curso de React</h1>
-     <img src={imagen} className='im'></img>
-     <div>{nombre}</div>
-     <div>{caja}</div>
+     <h1>{nombre[1].name}</h1>
+     <img src={imagen} className="im" alt="Hola"/>
      <input value={nombre}></input>
+     <div>{caja}</div>
      <br></br>
     </div>
   );
