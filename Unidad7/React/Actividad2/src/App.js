@@ -1,29 +1,50 @@
-
+import imagen0 from './img/rey_atanagildo.png';
+import imagen1 from './img/rey_sisebuto.png';
+import imagen2 from './img/rey_leogivildo.png';
+import imagen3 from './img/rey_incognito.png';
 
 import './ficherocss.css';
-import imagen1 from './img/rey_ataulfo.png' ;
-import imagen2 from './img/rey_atanagildo.png';
-import imagen3 from './img/rey_ervigio.png';
 
 function App() {
-  let nombres=['Atanagildo','Ataulfo','Ervigio'];
+
+ const nombres=['Atanagildo','Leogivildo','Sisebuto'];
+
+ const cambiar=(j)=> {
+    if(j.target.src.includes('rey_incognito')){
+      j.target.style.visibility="hidden";
+    }else{
+      j.target.src=imagen3;
+    }
+ }
+
+const cambiarTexto=(e)=>{
+  if(e.target.innerHTML=='Visto'){
+    e.target.innerHTML='';
+  }else{
+    e.target.innerHTML='Visto';
+  }
+  
+};
+
   return (
-    <div className="fondo">
+<>
+    <div className='contenedor'>
+      <div className='caja'>
+        <img onClick={cambiar} src={imagen0} alt=""></img>
+        <div onClick={cambiarTexto} className='nombre'>{nombres[0]}</div>
+      </div>
+      <div className='caja'>
+        <img onClick={cambiar} src={imagen1} alt=""></img>
+        <div onClick={cambiarTexto} className='nombre'>{nombres[1]}</div>
+      </div>
+      <div className='caja'>
+        <img onClick={cambiar} src={imagen2} alt=""></img>
+        <div onClick={cambiarTexto} className='nombre'>{nombres[2]}</div>
+      </div>
 
-     <div class='card'>
-      <img alt='' src={imagen1}></img>
-      <p>{nombres[0]}</p>
-     </div>
-     <div class='card'>
-     <img alt='' src={imagen2}></img>
-     <p>{nombres[1]}</p>
-
-     </div>
-     <div class='card'>
-     <img alt='' src={imagen3}></img>
-     <p>{nombres[2]}</p>
-     </div>
     </div>
+</>
+   
   );
 }
 

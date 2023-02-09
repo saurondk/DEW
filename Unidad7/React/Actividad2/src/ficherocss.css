@@ -1,4 +1,6 @@
-.fondo{
+
+
+.contenedor{
     display: flex;
     justify-content: space-evenly;
     background-color: blueviolet;
@@ -11,7 +13,7 @@
     
 
 }
-.card{
+.caja{
     width: 30%;
     text-align: center;
     border-radius: 12px;
