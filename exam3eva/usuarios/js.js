@@ -74,10 +74,10 @@ function filtrarGenero(datos){
 
 
 function Filtrar(datos) {
-    console.log(datos);
+  
      buscarBoton.addEventListener('click',()=>{
 
-        const filtrados = datos.results.filter(element => element.name.first == buscarInput.value);
+        const filtrados = datos.results.filter(element => element.name.first.toLowerCase().includes(buscarInput.value.toLowerCase()));
         
         borrarNodo(container);
         creaTarjetaFiltro(filtrados);
